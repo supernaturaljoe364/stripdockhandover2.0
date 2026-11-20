@@ -1,0 +1,41 @@
+order,sample_id,solution,nominal_mg_L,matrix,split,note
+1,S10-3,10 mg/L in distilled,10,distilled,train,
+2,S35-2,35 mg/L in distilled,35,distilled,train,
+3,S0-1,0 mg/L in distilled,0,distilled,train,
+4,S25-2,25 mg/L in distilled,25,distilled,train,
+5,S25-3,25 mg/L in distilled,25,distilled,train,
+6,S10-1,10 mg/L in distilled,10,distilled,train,
+7,S100-3,100 mg/L in distilled,100,distilled,train,
+8,S10-2,10 mg/L in distilled,10,distilled,train,
+9,S100-2,100 mg/L in distilled,100,distilled,train,
+10,S45-2,45 mg/L in distilled,45,distilled,train,
+11,S55-3,55 mg/L in distilled,55,distilled,train,
+12,S0-2,0 mg/L in distilled,0,distilled,train,
+13,S55-1,55 mg/L in distilled,55,distilled,train,
+14,S0-3,0 mg/L in distilled,0,distilled,train,
+15,S35-3,35 mg/L in distilled,35,distilled,train,
+16,S25-1,25 mg/L in distilled,25,distilled,train,
+17,S35-1,35 mg/L in distilled,35,distilled,train,
+18,S45-1,45 mg/L in distilled,45,distilled,train,
+19,S55-2,55 mg/L in distilled,55,distilled,train,
+20,S100-1,100 mg/L in distilled,100,distilled,train,
+21,S45-3,45 mg/L in distilled,45,distilled,train,
+22,U70-1,70 mg/L in distilled,70,distilled,holdout,unseen level
+23,S100-4,100 mg/L in distilled,100,distilled,holdout,
+24,SPK80-2,80 mg/L spike in tap,80,tap+80,holdout,true = spike + tap background
+25,U5-1,5 mg/L in distilled,5,distilled,holdout,unseen level
+26,U70-2,70 mg/L in distilled,70,distilled,holdout,unseen level
+27,SPK80-1,80 mg/L spike in tap,80,tap+80,holdout,true = spike + tap background
+28,TAP-3,plain tap water,0,tap,holdout,true = spike + tap background
+29,S55-4,55 mg/L in distilled,55,distilled,holdout,
+30,S10-4,10 mg/L in distilled,10,distilled,holdout,
+31,S25-4,25 mg/L in distilled,25,distilled,holdout,
+32,S35-4,35 mg/L in distilled,35,distilled,holdout,
+33,S45-4,45 mg/L in distilled,45,distilled,holdout,
+34,S0-4,0 mg/L in distilled,0,distilled,holdout,
+35,SPK80-4,80 mg/L spike in tap,80,tap+80,holdout,true = spike + tap background
+36,U5-2,5 mg/L in distilled,5,distilled,holdout,unseen level
+37,SPK80-3,80 mg/L spike in tap,80,tap+80,holdout,true = spike + tap background
+38,TAP-1,plain tap water,0,tap,holdout,true = spike + tap background
+39,TAP-2,plain tap water,0,tap,holdout,true = spike + tap background
+40,DRY-1,"none (dry, undipped strip)",,dry,control,HIL step 6 / limitation; reuse for fail-safe checks

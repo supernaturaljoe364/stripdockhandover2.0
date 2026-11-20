@@ -1,0 +1,1609 @@
+{
+ "sample_id": "S10-3",
+ "folder": "S10-3",
+ "mode": "train",
+ "session": "20261120_1058_train",
+ "concentration_mg_L": 9.9,
+ "note": "cup: 250 mL distilled + 2.7 mL stock B (9.9 mg/L calc); single-container ascending series",
+ "t_start": "2026-11-20 11:07:25",
+ "start_to_verdict_s": 66.19,
+ "read_time_s": 60.0,
+ "read_offsets_s": [
+  0.0,
+  1.5,
+  3.0,
+  4.5,
+  6.0
+ ],
+ "lighting_mode": "phone_torch",
+ "camera_settings_hash": "231eb85694496d11",
+ "roi_hash": "5afb06662aca1f93",
+ "quality_thresholds": {
+  "black_L_max": 25.0,
+  "black_jump_max": 4.0,
+  "white_L_min": 60.0,
+  "white_L_max": 97.0,
+  "white_clip_frac_max": 0.01,
+  "clip_level": 250,
+  "glare_level": 240,
+  "glare_margin": 10,
+  "glare_sat_max": 0.12,
+  "glare_frac_max": 0.02,
+  "blur_min": 15.0,
+  "drift_max_dE": 3.0,
+  "strip_min_dE": 6.0,
+  "strip_min_absdiff": 12.0,
+  "grey_chroma_max": 8.0,
+  "max_frame_age_s": 2.0
+ },
+ "model": null,
+ "checks": [
+  {
+   "name": "phone",
+   "passed": true,
+   "value": 0.3233945369720459,
+   "threshold": "no HTTP errors, frame age <= 2.0 s",
+   "reason": ""
+  },
+  {
+   "name": "seated",
+   "passed": false,
+   "value": 0.0,
+   "threshold": "regions re-located within tolerance",
+   "reason": "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.55); strip not seated"
+  },
+  {
+   "name": "light_leak",
+   "passed": false,
+   "value": 43.60238071269634,
+   "threshold": "black L* <= 25.0, jump <= 4.0",
+   "reason": "light leak: black patch L* 43.6 > 25.0"
+  },
+  {
+   "name": "exposure",
+   "passed": true,
+   "value": 81.37620000000001,
+   "threshold": "60.0 <= white L* <= 97.0, clipped < 1%",
+   "reason": ""
+  },
+  {
+   "name": "glare",
+   "passed": true,
+   "value": 0.0,
+   "threshold": "glare fraction <= 0.02",
+   "reason": ""
+  },
+  {
+   "name": "blur",
+   "passed": true,
+   "value": 148.03650201453755,
+   "threshold": "Laplacian variance >= 15.0",
+   "reason": ""
+  },
+  {
+   "name": "timing",
+   "passed": true,
+   "value": 60.0,
+   "threshold": "read at >= 60.0 s",
+   "reason": ""
+  },
+  {
+   "name": "drift",
+   "passed": true,
+   "value": 0.7681049676367757,
+   "threshold": "pad drift <= 3.0 dE00",
+   "reason": ""
+  },
+  {
+   "name": "reference",
+   "passed": true,
+   "value": 6.273386485782619,
+   "threshold": "grey patch chroma after correction <= 8.0",
+   "reason": ""
+  },
+  {
+   "name": "strip_present",
+   "passed": false,
+   "value": 0.9174360029474923,
+   "threshold": "dE00 vs empty tray >= 6.0 or abs diff >= 12.0",
+   "reason": "no strip in the tray (pad looks like the empty tray)"
+  }
+ ],
+ "quality_ok": false,
+ "metrics": {
+  "black_L_series": [
+   43.32,
+   43.32,
+   43.32,
+   43.39,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.6,
+   43.6,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.39,
+   43.32,
+   43.32,
+   43.32,
+   43.6,
+   43.6,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.6,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.32,
+   43.39,
+   43.6,
+   43.32,
+   43.32,
+   43.32,
+   43.39,
+   43.32,
+   43.32,
+   43.32,
+   43.6,
+   43.32
+  ],
+  "black_jump_max": 0.28054828037792845,
+  "latency_max_s": 0.3233945369720459,
+  "n_errors": 0,
+  "n_retries": 0,
+  "retries": [],
+  "black_L_max": 43.60238071269634,
+  "white_L_mean": 81.37620000000001,
+  "white_clip_max": 0.0,
+  "glare_max": 0.0,
+  "sharpness_min": 148.03650201453755,
+  "grey_chroma_max": 6.273386485782619,
+  "drift_dE": 0.7681049676367757,
+  "strip_dE": 0.9174360029474923,
+  "strip_absdiff": 1.8598360655737705
+ },
+ "features": {
+  "pad_L": 88.5668,
+  "pad_a": 3.3638,
+  "pad_b": -2.474,
+  "pad_C": 4.175622880481426,
+  "pad_h": 323.66634612354414,
+  "n_frames": 5,
+  "nitrite_L": 90.9222,
+  "nitrite_a": 2.4042000000000003,
+  "nitrite_b": -1.4252000000000002,
+  "nitrite_C": 2.7948833034672487,
+  "nitrite_h": 329.34070990889427
+ },
+ "prediction": null,
+ "verdict": {
+  "command": "UNKNOWN",
+  "reasons": [
+   "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.55); strip not seated",
+   "light leak: black patch L* 43.6 > 25.0",
+   "no strip in the tray (pad looks like the empty tray)"
+  ],
+  "est_mg_L": null,
+  "block_mg_L": null,
+  "borderline": false,
+  "distance_dE": null,
+  "display": "UNKNOWN: re-test"
+ },
+ "panel": {
+  "sent": false,
+  "reply_state": null,
+  "delivered": false
+ },
+ "monitor": [
+  {
+   "t": 1.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_000.jpg"
+  },
+  {
+   "t": 2.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 3.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 4.19,
+   "black_L": 43.391596983252406,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 5.22,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 6.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_005.jpg"
+  },
+  {
+   "t": 7.26,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 8.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 9.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 10.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 11.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_010.jpg"
+  },
+  {
+   "t": 12.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 13.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 14.26,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 15.2,
+   "black_L": 43.60238071269634,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 16.31,
+   "black_L": 43.60238071269634,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_015.jpg"
+  },
+  {
+   "t": 17.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 18.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 19.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 20.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 21.2,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_020.jpg"
+  },
+  {
+   "t": 22.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 23.24,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 24.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 25.3,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 26.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_025.jpg"
+  },
+  {
+   "t": 27.33,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 28.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 29.22,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 30.2,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 31.2,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_030.jpg"
+  },
+  {
+   "t": 32.28,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 33.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 34.3,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 35.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 36.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_035.jpg"
+  },
+  {
+   "t": 37.28,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 38.19,
+   "black_L": 43.391596983252406,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 39.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 40.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 41.24,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_040.jpg"
+  },
+  {
+   "t": 42.18,
+   "black_L": 43.60238071269634,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 43.28,
+   "black_L": 43.60238071269634,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 44.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 45.3,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 46.2,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_045.jpg"
+  },
+  {
+   "t": 47.2,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 48.18,
+   "black_L": 43.60238071269634,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 49.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 50.22,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 51.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_050.jpg"
+  },
+  {
+   "t": 52.31,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 53.2,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 54.32,
+   "black_L": 43.391596983252406,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 55.2,
+   "black_L": 43.60238071269634,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 56.19,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null,
+   "file": "frames/monitor_055.jpg"
+  },
+  {
+   "t": 57.18,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 58.17,
+   "black_L": 43.32183243231841,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  },
+  {
+   "t": 59.23,
+   "black_L": 43.391596983252406,
+   "located": false,
+   "shift": [
+    28,
+    12
+   ],
+   "error": null
+  }
+ ],
+ "frames": [
+  {
+   "raw_rgb": {
+    "white": [
+     224.0,
+     197.0,
+     190.0
+    ],
+    "grey": [
+     122.0,
+     118.0,
+     118.0
+    ],
+    "black": [
+     113.0,
+     99.0,
+     101.0
+    ],
+    "nitrate_pad": [
+     214.0,
+     182.0,
+     181.0
+    ],
+    "nitrite_pad": [
+     218.0,
+     187.0,
+     186.0
+    ]
+   },
+   "raw_lab": {
+    "white": [
+     81.565,
+     8.38,
+     7.0
+    ],
+    "grey": [
+     49.981,
+     1.525,
+     0.543
+    ],
+    "black": [
+     43.322,
+     5.954,
+     0.919
+    ],
+    "nitrate_pad": [
+     76.733,
+     11.312,
+     4.779
+    ],
+    "nitrite_pad": [
+     78.458,
+     10.887,
+     4.606
+    ]
+   },
+   "corr_lab": {
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     58.604,
+     -3.744,
+     -4.532
+    ],
+    "black": [
+     50.85,
+     1.28,
+     -3.927
+    ],
+    "nitrate_pad": [
+     88.324,
+     3.69,
+     -2.43
+    ],
+    "nitrite_pad": [
+     90.301,
+     3.127,
+     -2.729
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.1403209012249955,
+     1.5223688197745808,
+     1.650749347234878
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 148.03650201453755,
+   "grey_chroma": 5.878482797457181,
+   "file": "frames/read_0.jpg",
+   "elapsed_s": 60.0,
+   "latency_s": 0.166,
+   "located_ok": false,
+   "locate_reason": "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.55); strip not seated",
+   "patch_shift": [
+    28,
+    12
+   ],
+   "strip_shift": [
+    -15,
+    10
+   ],
+   "patch_score": 0.944,
+   "strip_score": 0.551,
+   "regions_used": {
+    "white": [
+     423,
+     267,
+     170,
+     70
+    ],
+    "grey": [
+     453,
+     422,
+     120,
+     120
+    ],
+    "black": [
+     1093,
+     502,
+     150,
+     130
+    ],
+    "nitrate_pad": [
+     179,
+     878,
+     102,
+     100
+    ],
+    "nitrite_pad": [
+     333,
+     878,
+     100,
+     100
+    ],
+    "anchor": [
+     113,
+     850,
+     60,
+     150
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "white": [
+     224.0,
+     196.0,
+     190.0
+    ],
+    "grey": [
+     121.0,
+     118.0,
+     118.0
+    ],
+    "black": [
+     113.0,
+     99.0,
+     101.0
+    ],
+    "nitrate_pad": [
+     214.0,
+     182.0,
+     182.0
+    ],
+    "nitrite_pad": [
+     218.0,
+     187.0,
+     186.0
+    ]
+   },
+   "raw_lab": {
+    "white": [
+     81.317,
+     8.909,
+     6.643
+    ],
+    "grey": [
+     49.894,
+     1.143,
+     0.406
+    ],
+    "black": [
+     43.322,
+     5.954,
+     0.919
+    ],
+    "nitrate_pad": [
+     76.758,
+     11.472,
+     4.272
+    ],
+    "nitrite_pad": [
+     78.458,
+     10.887,
+     4.606
+    ]
+   },
+   "corr_lab": {
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     58.738,
+     -4.527,
+     -4.343
+    ],
+    "black": [
+     51.031,
+     0.908,
+     -3.659
+    ],
+    "nitrate_pad": [
+     88.635,
+     3.333,
+     -2.623
+    ],
+    "nitrite_pad": [
+     90.586,
+     2.538,
+     -2.311
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.1403209012249955,
+     1.5398232675480743,
+     1.650749347234878
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 149.05714012984367,
+   "grey_chroma": 6.273386485782619,
+   "file": "frames/read_1.jpg",
+   "elapsed_s": 61.5,
+   "latency_s": 0.181,
+   "located_ok": false,
+   "locate_reason": "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.55); strip not seated",
+   "patch_shift": [
+    28,
+    12
+   ],
+   "strip_shift": [
+    -6,
+    9
+   ],
+   "patch_score": 0.945,
+   "strip_score": 0.549,
+   "regions_used": {
+    "white": [
+     423,
+     267,
+     170,
+     70
+    ],
+    "grey": [
+     453,
+     422,
+     120,
+     120
+    ],
+    "black": [
+     1093,
+     502,
+     150,
+     130
+    ],
+    "nitrate_pad": [
+     188,
+     877,
+     102,
+     100
+    ],
+    "nitrite_pad": [
+     342,
+     877,
+     100,
+     100
+    ],
+    "anchor": [
+     122,
+     849,
+     60,
+     150
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "white": [
+     224.0,
+     196.0,
+     190.0
+    ],
+    "grey": [
+     122.0,
+     118.0,
+     118.0
+    ],
+    "black": [
+     113.0,
+     99.0,
+     101.0
+    ],
+    "nitrate_pad": [
+     214.0,
+     182.0,
+     182.0
+    ],
+    "nitrite_pad": [
+     221.0,
+     189.0,
+     186.0
+    ]
+   },
+   "raw_lab": {
+    "white": [
+     81.317,
+     8.909,
+     6.643
+    ],
+    "grey": [
+     49.981,
+     1.525,
+     0.543
+    ],
+    "black": [
+     43.322,
+     5.954,
+     0.919
+    ],
+    "nitrate_pad": [
+     76.758,
+     11.472,
+     4.272
+    ],
+    "nitrite_pad": [
+     79.222,
+     10.909,
+     5.743
+    ]
+   },
+   "corr_lab": {
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     58.815,
+     -4.163,
+     -4.221
+    ],
+    "black": [
+     51.031,
+     0.908,
+     -3.659
+    ],
+    "nitrate_pad": [
+     88.635,
+     3.333,
+     -2.623
+    ],
+    "nitrite_pad": [
+     91.426,
+     2.364,
+     -1.052
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.1403209012249955,
+     1.5398232675480743,
+     1.650749347234878
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 152.2167608293049,
+   "grey_chroma": 5.9285251116951505,
+   "file": "frames/read_2.jpg",
+   "elapsed_s": 63.001,
+   "latency_s": 0.323,
+   "located_ok": false,
+   "locate_reason": "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.56); strip not seated",
+   "patch_shift": [
+    28,
+    12
+   ],
+   "strip_shift": [
+    2,
+    3
+   ],
+   "patch_score": 0.944,
+   "strip_score": 0.562,
+   "regions_used": {
+    "white": [
+     423,
+     267,
+     170,
+     70
+    ],
+    "grey": [
+     453,
+     422,
+     120,
+     120
+    ],
+    "black": [
+     1093,
+     502,
+     150,
+     130
+    ],
+    "nitrate_pad": [
+     196,
+     871,
+     102,
+     100
+    ],
+    "nitrite_pad": [
+     350,
+     871,
+     100,
+     100
+    ],
+    "anchor": [
+     130,
+     843,
+     60,
+     150
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "white": [
+     224.0,
+     196.0,
+     191.0
+    ],
+    "grey": [
+     121.0,
+     118.0,
+     118.0
+    ],
+    "black": [
+     113.0,
+     100.0,
+     101.0
+    ],
+    "nitrate_pad": [
+     214.0,
+     182.0,
+     183.0
+    ],
+    "nitrite_pad": [
+     221.0,
+     189.0,
+     186.0
+    ]
+   },
+   "raw_lab": {
+    "white": [
+     81.341,
+     9.067,
+     6.142
+    ],
+    "grey": [
+     49.894,
+     1.143,
+     0.406
+    ],
+    "black": [
+     43.602,
+     5.354,
+     1.327
+    ],
+    "nitrate_pad": [
+     76.783,
+     11.632,
+     3.765
+    ],
+    "nitrite_pad": [
+     79.222,
+     10.909,
+     5.743
+    ]
+   },
+   "corr_lab": {
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     58.714,
+     -4.7,
+     -3.924
+    ],
+    "black": [
+     51.348,
+     0.068,
+     -2.785
+    ],
+    "nitrate_pad": [
+     88.636,
+     3.342,
+     -2.646
+    ],
+    "nitrite_pad": [
+     91.395,
+     2.152,
+     -0.469
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.1403209012249955,
+     1.5398232675480743,
+     1.6314917894064287
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 152.8184720156851,
+   "grey_chroma": 6.122726190186852,
+   "file": "frames/read_3.jpg",
+   "elapsed_s": 64.5,
+   "latency_s": 0.226,
+   "located_ok": false,
+   "locate_reason": "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.56); strip not seated",
+   "patch_shift": [
+    28,
+    12
+   ],
+   "strip_shift": [
+    2,
+    3
+   ],
+   "patch_score": 0.944,
+   "strip_score": 0.564,
+   "regions_used": {
+    "white": [
+     423,
+     267,
+     170,
+     70
+    ],
+    "grey": [
+     453,
+     422,
+     120,
+     120
+    ],
+    "black": [
+     1093,
+     502,
+     150,
+     130
+    ],
+    "nitrate_pad": [
+     196,
+     871,
+     102,
+     100
+    ],
+    "nitrite_pad": [
+     350,
+     871,
+     100,
+     100
+    ],
+    "anchor": [
+     130,
+     843,
+     60,
+     150
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "white": [
+     224.0,
+     196.0,
+     191.0
+    ],
+    "grey": [
+     121.0,
+     118.0,
+     118.0
+    ],
+    "black": [
+     113.0,
+     99.0,
+     101.0
+    ],
+    "nitrate_pad": [
+     214.0,
+     182.0,
+     182.0
+    ],
+    "nitrite_pad": [
+     219.0,
+     188.0,
+     185.0
+    ]
+   },
+   "raw_lab": {
+    "white": [
+     81.341,
+     9.067,
+     6.142
+    ],
+    "grey": [
+     49.894,
+     1.143,
+     0.406
+    ],
+    "black": [
+     43.322,
+     5.954,
+     0.919
+    ],
+    "nitrate_pad": [
+     76.758,
+     11.472,
+     4.272
+    ],
+    "nitrite_pad": [
+     78.77,
+     10.558,
+     5.609
+    ]
+   },
+   "corr_lab": {
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     58.714,
+     -4.7,
+     -3.924
+    ],
+    "black": [
+     51.01,
+     0.762,
+     -3.284
+    ],
+    "nitrate_pad": [
+     88.604,
+     3.121,
+     -2.048
+    ],
+    "nitrite_pad": [
+     90.903,
+     1.84,
+     -0.565
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.1403209012249955,
+     1.5398232675480743,
+     1.6314917894064287
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 149.5910770659126,
+   "grey_chroma": 6.122726190186852,
+   "file": "frames/read_4.jpg",
+   "elapsed_s": 66.0,
+   "latency_s": 0.166,
+   "located_ok": false,
+   "locate_reason": "camera/dock moved 28 px (> 15); strip not seated; strip anchor not found (match 0.55); strip not seated",
+   "patch_shift": [
+    28,
+    12
+   ],
+   "strip_shift": [
+    -9,
+    5
+   ],
+   "patch_score": 0.944,
+   "strip_score": 0.553,
+   "regions_used": {
+    "white": [
+     423,
+     267,
+     170,
+     70
+    ],
+    "grey": [
+     453,
+     422,
+     120,
+     120
+    ],
+    "black": [
+     1093,
+     502,
+     150,
+     130
+    ],
+    "nitrate_pad": [
+     185,
+     873,
+     102,
+     100
+    ],
+    "nitrite_pad": [
+     339,
+     873,
+     100,
+     100
+    ],
+    "anchor": [
+     119,
+     845,
+     60,
+     150
+    ]
+   }
+  }
+ ],
+ "errors": []
+}

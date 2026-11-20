@@ -1,0 +1,13 @@
+{
+ "session": "20261119_2145_dry",
+ "purpose": "dry",
+ "operator": "dane kunna",
+ "created": "2026-11-19 21:45:27",
+ "closed": false,
+ "lighting_mode": "phone_torch",
+ "camera_settings_hash": "231eb85694496d11",
+ "roi_hash": "362b035ba62b2381",
+ "quality_thresholds_hash": "23845aaaa92e581e",
+ "read_time_s": 60,
+ "model_sha256": null
+}

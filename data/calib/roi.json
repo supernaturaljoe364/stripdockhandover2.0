@@ -1,0 +1,47 @@
+{
+ "created": "2026-11-20 11:20:25",
+ "frame_size": [
+  1920,
+  1080
+ ],
+ "reference_frame": "data/calib/roi_reference.jpg",
+ "regions": {
+  "white": [
+   610,
+   530,
+   170,
+   70
+  ],
+  "grey": [
+   650,
+   645,
+   135,
+   115
+  ],
+  "black": [
+   1150,
+   570,
+   200,
+   110
+  ],
+  "nitrate_pad": [
+   100,
+   300,
+   95,
+   105
+  ],
+  "nitrite_pad": [
+   252,
+   300,
+   95,
+   105
+  ],
+  "anchor": [
+   40,
+   280,
+   60,
+   145
+  ]
+ },
+ "empty_tray_frame": "data/calib/empty_tray.jpg"
+}

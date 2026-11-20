@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/synthetic/_e2e/
+# originals of the bottle photos (copies are in data/chart/)
+WhatsApp Image *.jpeg

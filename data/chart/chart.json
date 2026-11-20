@@ -1,0 +1,21 @@
+{
+  "product": "eSHa AQUA QUICK TEST (7-in-1 aquarium strips)",
+  "lot": "7833 (from bottle label, partly legible; confirm)",
+  "source_photos": ["bottle_front.jpg", "bottle_front_left.jpg", "bottle_side_right.jpg", "strip_dry.jpg"],
+  "nitrate": {
+    "units": "mg/L NO3-",
+    "units_on_bottle": "NO3 mg/L",
+    "to_no3_factor": 1.0,
+    "blocks_mg_L": [0, 10, 25, 50, 100, 250, 500],
+    "colour_trend": "white (0) -> pale pink -> pink -> magenta (500)"
+  },
+  "nitrite": {
+    "units": "mg/L NO2-",
+    "blocks_mg_L": [0, 1, 5, 10, 25, 50]
+  },
+  "read_time_s": 60,
+  "read_time_source": "bottle text '... 60 Sek.' confirmed by operator 2026-11-19",
+  "pad_order_from_tip": ["NO3", "NO2", "GH-1", "GH-2", "GH-3", "KH", "pH", "Cl2"],
+  "pad_order_note": "Pad 1 at the tip (farthest from the handle) is nitrate; confirmed by operator 2026-11-19. Cl2 is nearest the handle.",
+  "confirmed_by_operator": "2026-11-19"
+}

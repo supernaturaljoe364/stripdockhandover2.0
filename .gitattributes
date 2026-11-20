@@ -1,0 +1,4 @@
+# Session data and models are hash-locked (MANIFEST.sha256 / model .sha256): store byte-for-byte, never convert line endings.
+data/** -text
+models/** -text
+results/** -text

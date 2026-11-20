@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StripDock</title>
+<style>
+  :root { --bg:#111418; --card:#1b2027; --line:#2c333d; --text:#eef1f4; --dim:#9aa4af;
+          --hold:#e5484d; --confirm:#30a46c; --adaptive:#3e63dd; --unknown:#f5a623; --grey:#5b6570; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:18px/1.35 "Segoe UI", system-ui, sans-serif; }
+  header { display:flex; align-items:center; gap:14px; padding:10px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  header h1 { font-size:24px; margin:0 12px 0 0; letter-spacing:.5px; }
+  .pill { padding:6px 12px; border-radius:999px; font-size:15px; background:var(--grey); white-space:nowrap; }
+  .pill.ok { background:#1f5136; } .pill.bad { background:#6b2326; }
+  header a { color:var(--dim); margin-left:auto; font-size:15px; }
+  main { display:grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap:16px; padding:16px; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  #preview { width:100%; border-radius:8px; background:#000; display:block; }
+  #panelState { text-align:center; padding:26px 10px; border-radius:12px; font-size:54px; font-weight:800; letter-spacing:1px; background:var(--grey); }
+  #panelState.HOLD { background:var(--hold); } #panelState.CONFIRM_WAIT { background:var(--confirm); }
+  #panelState.ADAPTIVE { background:var(--adaptive); }
+  #panelSub { text-align:center; color:var(--dim); margin-top:6px; font-size:16px; }
+  #confirmBanner { display:none; margin-top:10px; padding:14px; border-radius:10px; background:#173b2a; border:2px solid var(--confirm); font-size:24px; text-align:center; font-weight:700; }
+  #verdict { font-size:34px; font-weight:800; margin:4px 0; }
+  #verdict.HOLD { color:var(--hold); } #verdict.PASS { color:#7aa2ff; } #verdict.UNKNOWN { color:var(--unknown); }
+  .reasons { color:var(--dim); font-size:16px; margin:4px 0 0 0; padding-left:20px; }
+  label { display:block; font-size:15px; color:var(--dim); margin:8px 0 3px; }
+  input, select { width:100%; font-size:20px; padding:8px 10px; border-radius:8px; border:1px solid var(--line); background:#0d1014; color:var(--text); }
+  button { font-size:20px; padding:10px 16px; border-radius:10px; border:0; cursor:pointer; background:#3a4450; color:var(--text); }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  #startBtn { width:100%; font-size:34px; font-weight:800; padding:18px; margin-top:12px; background:var(--confirm); }
+  #countdown { font-size:64px; font-weight:800; text-align:center; font-variant-numeric:tabular-nums; }
+  #phase { text-align:center; color:var(--dim); }
+  .check { display:flex; gap:10px; align-items:baseline; padding:3px 0; font-size:17px; }
+  .dot { width:14px; height:14px; border-radius:50%; flex:none; background:var(--hold); position:relative; top:2px; }
+  .dot.ok { background:var(--confirm); }
+  .why { color:var(--dim); font-size:14px; }
+  .row { display:flex; gap:10px; } .row > * { flex:1; }
+  .msgs { font-size:15px; color:var(--dim); max-height:170px; overflow:auto; }
+  .msgs .warn { color:var(--unknown); } .msgs .ok { color:#6fd39a; }
+  details summary { cursor:pointer; color:var(--dim); }
+  .note { font-size:13px; color:var(--dim); }
+  #err { color:var(--hold); font-weight:600; min-height:1.2em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>StripDock</h1>
+  <span id="pArduino" class="pill">Arduino</span>
+  <span id="pPhone" class="pill">Phone</span>
+  <span id="pCam" class="pill">Camera lock</span>
+  <span id="pRoi" class="pill">ROI</span>
+  <span id="pModel" class="pill">Model</span>
+  <a href="/calibrate">Calibrate regions</a>
+</header>
+<main>
+  <section>
+    <div class="card"><img id="preview" alt="live phone preview" src="/api/preview.jpg"></div>
+    <div class="card" style="margin-top:16px">
+      <div style="color:var(--dim);font-size:15px">Last verdict</div>
+      <div id="verdict">-</div>
+      <div id="verdictInfo" class="why"></div>
+      <ul id="reasons" class="reasons"></ul>
+      <div class="note">Indicative screening only. StripDock never certifies water quality.</div>
+    </div>
+  </section>
+  <section>
+    <div class="card">
+      <div id="panelState">PANEL ?</div>
+      <div id="panelSub">waiting for the panel</div>
+      <div id="confirmBanner">Press CONFIRM on the panel within <span id="confirmLeft">60</span> s</div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div id="sessionNone">
+        <div class="row">
+          <div><label>Session purpose</label>
+            <select id="purpose">{% for p in purposes %}<option>{{p}}</option>{% endfor %}</select></div>
+          <div><label>Operator name</label><input id="operator" placeholder="name"></div>
+        </div>
+        <button id="openBtn" style="margin-top:10px;width:100%">Start session</button>
+      </div>
+      <div id="sessionOpen" style="display:none">
+        <div class="row" style="align-items:center">
+          <div><b id="sessName"></b><div class="why" id="sessMode"></div></div>
+          <button id="closeBtn" style="flex:0 0 auto">Close session</button>
+        </div>
+        <label>Sample code (type or scan)</label>
+        <input id="sampleId" autocomplete="off" placeholder="e.g. T07">
+        <div id="concBox"><label>Known concentration, mg/L NO3- (training only)</label><input id="conc" type="number" step="any"></div>
+        <div id="degBox"><label>Degradation done</label>
+          <select id="deg"><option value="">choose ...</option>{% for d in degradations %}<option>{{d}}</option>{% endfor %}</select></div>
+        <div id="noteBox"><label>Note (e.g. empty tray / dry strip / distilled / tap)</label><input id="note"></div>
+        <label style="display:flex;gap:8px;align-items:center;color:var(--text)"><input type="checkbox" id="sendPanel" checked style="width:auto"> send the verdict to the panel</label>
+        <div class="note">Dip the strip as the bottle says, blot the edge, slide the tray in fully, then press START.</div>
+        <button id="startBtn">START</button>
+        <div id="err"></div>
+      </div>
+      <div id="jobBox" style="display:none;margin-top:10px">
+        <div id="countdown">60</div>
+        <div id="phase"></div>
+        <button id="cancelBtn" style="width:100%;margin-top:8px">Cancel read</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div style="font-weight:700;margin-bottom:6px">Startup checklist</div>
+      <div id="checklist"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div style="font-weight:700;margin-bottom:6px">Messages</div>
+      <div id="msgs" class="msgs"></div>
+      <details style="margin-top:8px"><summary>Service</summary>
+        <div class="row" style="margin-top:8px">
+          <button onclick="svc('STATUS')">STATUS</button>
+          <button onclick="svc('HOLD')">Send HOLD</button>
+          <button onclick="svc('UNKNOWN')">Send UNKNOWN</button>
+          <button onclick="post('/api/camcheck',{})">Re-check camera</button>
+        </div>
+        <div class="note">PASS is never sent by hand. Clearing a hold needs a real passing read plus the CONFIRM button.</div>
+      </details>
+    </div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let state = null;
+async function post(url, body) {
+  const r = await fetch(url, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  const j = await r.json().catch(() => ({ok:false, error:'bad reply'}));
+  if (!j.ok) $('err').textContent = j.error || 'failed'; else $('err').textContent = '';
+  return j;
+}
+function svc(cmd) { post('/api/panel/send', {cmd}); }
+$('openBtn').onclick = () => post('/api/session/new', {purpose:$('purpose').value, operator:$('operator').value})
+  .then(j => { if (!j.ok) alert(j.error); });
+$('closeBtn').onclick = () => { if (confirm('Close and lock this session? It becomes read-only.')) post('/api/session/close', {}); };
+$('startBtn').onclick = () => post('/api/read/start', {sample_id:$('sampleId').value, concentration:$('conc').value,
+  degradation:$('deg').value, note:$('note').value, send_to_panel:$('sendPanel').checked})
+  .then(j => { if (j.ok) { $('sampleId').value=''; } });
+$('cancelBtn').onclick = () => post('/api/read/cancel', {});
+$('sampleId').addEventListener('keydown', e => { if (e.key === 'Enter') e.preventDefault(); });
+
+function pill(id, ok, text) { const e=$(id); e.className='pill '+(ok?'ok':'bad'); e.textContent=text; }
+const PANEL_TEXT = {HOLD:'HOLD: RO+UV', CONFIRM_WAIT:'CONFIRM?', ADAPTIVE:'ADAPTIVE'};
+const PANEL_SUB = {HOLD:'Purifier held in RO+UV mode', CONFIRM_WAIT:'Waiting for the CONFIRM button', ADAPTIVE:'Adaptive mode (TDS logic)'};
+
+function render(s) {
+  state = s;
+  const cl = Object.fromEntries(s.checklist.map(c => [c.name, c]));
+  pill('pArduino', s.panel.link_ok, s.panel.link_ok ? 'Arduino '+(s.panel.port||'') : 'Arduino NOT linked');
+  pill('pPhone', s.phone.ok, s.phone.ok ? 'Phone OK' : 'Phone unreachable');
+  pill('pCam', cl['Camera locked']?.ok, cl['Camera locked']?.ok ? 'Camera locked' : 'Camera NOT locked');
+  pill('pRoi', cl['ROI loaded']?.ok, cl['ROI loaded']?.ok ? 'ROI loaded' : 'ROI missing');
+  pill('pModel', !!s.model, s.model ? ('Model '+(s.model.frozen?'frozen':'NOT frozen')+' ('+s.model.primary+')') : 'No model');
+
+  const ps = $('panelState');
+  const st = s.panel.link_ok ? s.panel.state : null;
+  ps.className = st || ''; ps.textContent = st ? PANEL_TEXT[st] : 'PANEL NOT LINKED';
+  $('panelSub').textContent = st ? PANEL_SUB[st] : (s.panel.error || 'check the USB cable');
+  $('confirmBanner').style.display = st === 'CONFIRM_WAIT' ? 'block' : 'none';
+  if (s.panel.confirm_left_s != null) $('confirmLeft').textContent = Math.ceil(s.panel.confirm_left_s);
+
+  const sess = s.session;
+  $('sessionNone').style.display = sess ? 'none' : 'block';
+  $('sessionOpen').style.display = sess ? 'block' : 'none';
+  if (sess) {
+    $('sessName').textContent = sess.name;
+    $('sessMode').textContent = 'mode: ' + sess.purpose + ' | operator: ' + sess.operator;
+    $('concBox').style.display = sess.purpose === 'train' ? 'block' : 'none';
+    $('degBox').style.display = sess.purpose === 'degraded' ? 'block' : 'none';
+    $('noteBox').style.display = (sess.purpose === 'dry' || sess.purpose === 'degraded') ? 'block' : 'none';
+  }
+  const running = s.job && !s.job.done;
+  $('startBtn').disabled = !s.can_start;
+  $('startBtn').title = s.can_start ? '' : s.why_not.join('\n');
+  if (!s.can_start && sess && !running) $('err').textContent = 'START blocked: ' + s.why_not.join(' | ');
+  else if (s.can_start && $('err').textContent.startsWith('START blocked')) $('err').textContent = '';
+  $('jobBox').style.display = s.job ? 'block' : 'none';
+  if (s.job) {
+    const left = Math.max(0, (s.job.read_time || 0) - (s.job.elapsed || 0));
+    $('countdown').textContent = s.job.done ? 'done' : (s.job.phase === 'countdown' ? Math.ceil(left) + ' s' : '...');
+    $('phase').textContent = (s.job.sample_id||'') + ' | ' + (s.job.phase||'') + ' | ' + (s.job.message||'');
+    $('cancelBtn').style.display = running ? 'block' : 'none';
+  }
+  if (s.last) {
+    const v = s.last.verdict;
+    $('verdict').className = v.command; $('verdict').textContent = v.display;
+    const est = v.est_mg_L != null ? ('est. ' + v.est_mg_L.toFixed(0) + ' mg/L, nearest block ' + v.block_mg_L + ' mg/L') : '';
+    $('verdictInfo').textContent = s.last.sample_id + ' | ' + s.last.mode + (est ? ' | ' + est : '') +
+      (s.last.start_to_verdict_s ? ' | ' + s.last.start_to_verdict_s.toFixed(0) + ' s' : '') +
+      (s.last.delivered === false ? ' | NOT delivered to the panel' : '');
+    $('reasons').innerHTML = v.reasons.map(r => '<li>' + r.replace(/</g,'&lt;') + '</li>').join('');
+  }
+  $('checklist').innerHTML = s.checklist.map(c => '<div class="check"><span class="dot ' + (c.ok?'ok':'') + '"></span><div>' +
+    c.name + (c.why ? '<div class="why">' + c.why.replace(/</g,'&lt;') + '</div>' : '') + '</div></div>').join('');
+  $('msgs').innerHTML = s.messages.slice().reverse().map(m => '<div class="' + m.level + '">' +
+    new Date(m.t*1000).toLocaleTimeString() + ' ' + m.text.replace(/</g,'&lt;') + '</div>').join('');
+}
+async function poll() {
+  try { const r = await fetch('/api/state'); render(await r.json()); } catch (e) {}
+  setTimeout(poll, 500);
+}
+function refreshPreview() {
+  const img = new Image();
+  img.onload = () => { $('preview').src = img.src; setTimeout(refreshPreview, 450); };
+  img.onerror = () => setTimeout(refreshPreview, 1500);
+  img.src = '/api/preview.jpg?t=' + Date.now();
+}
+poll(); refreshPreview();
+</script>
+</body>
+</html>

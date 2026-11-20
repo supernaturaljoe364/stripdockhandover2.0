@@ -1,0 +1,83 @@
+# StripDock Round 3 configuration.
+# Thresholds marked FREEZE are copied into the frozen model; test/degraded/demo
+# sessions refuse to start if they differ from the frozen copy.
+
+# Phone link: USB cable + adb port forward (D-36). For Wi-Fi instead, set phone_ip to the
+# address IP Webcam shows (was 192.168.29.229) and leave adb_path empty.
+phone_ip: 127.0.0.1
+phone_port: 8080
+adb_path: C:/Users/Hp/AppData/Local/Android/Sdk/platform-tools/adb.exe
+# Endpoint used for read-time frames. Chosen by tools/phone_check.py (see DECISIONS.md).
+frame_endpoint: /shot.jpg
+http_timeout_s: 2.0
+# A slow (> max_frame_age_s) or failed frame request is retried this many times (D-35)
+frame_retries: 1
+
+serial_port: COM8          # "auto" = pick the single USB-serial port
+serial_baud: 115200
+ping_interval_s: 2.0
+
+lighting_mode: phone_torch # dock_leds | phone_torch
+
+# Strip timing (eSHa AQUA QUICK TEST bottle: read after 60 s)
+read_time_s: 60
+# Offsets (s) after read_time_s at which the 5 read frames are taken.
+# Never earlier than read_time_s (decision rule 1), see DECISIONS.md D-07.
+read_offsets_s: [0.0, 1.5, 3.0, 4.5, 6.0]
+# Light-leak monitoring frames during the countdown
+monitor_interval_s: 1.0
+# Degraded mode "early read" reads at this time instead (it must fail the timing check)
+early_read_s: 20
+
+chart_file: data/chart/chart.json
+roi_file: data/calib/roi.json
+camera_settings_file: data/calib/camera_settings.json
+
+# Colour correction: white_gain (every frame: per-channel gain from the white patch) or
+# three_point (black/grey/white fit when stable). white_gain chosen 2026-11-20 because the
+# marker "black" and "grey" patches are too close in the red channel for a stable fit (D-37).
+# FREEZE: stored in the model; test mode refuses if it changes.
+correction_mode: white_gain
+
+# Decision rule 3: HOLD at or above this chart block (mg/L NO3-). Frozen rule.
+hold_block_mg_L: 25
+
+roi:
+  shrink_frac: 0.20        # shrink each region by 20% from each edge before sampling
+  shift_tol_px: 15         # max allowed re-location shift
+  search_px: 30            # search window (so a shift > tol can be measured and reported)
+  min_match_score: 0.60    # normalised cross-correlation needed to accept a re-location
+
+# Quality gate thresholds (FREEZE). Initial values are placeholders until set from dry
+# captures with tools/suggest_thresholds.py. Values are L* (0-100), dE00, fractions.
+quality:
+  black_L_max: 25.0        # raw black patch L* above this = light leak
+  black_jump_max: 4.0      # frame-to-frame black-patch L* jump above this = light leak
+  white_L_min: 60.0        # raw white patch L* range
+  white_L_max: 97.0
+  white_clip_frac_max: 0.01
+  clip_level: 250          # 8-bit value counted as clipped
+  glare_level: 240         # near-saturated pixel (max channel >=) ...
+  glare_margin: 10         # ... and brighter than the white patch + this (capped at clip_level)
+  glare_sat_max: 0.12      # low chroma: (max-min)/max <=
+  glare_frac_max: 0.02     # fraction of pad pixels allowed to be glare
+  blur_min: 15.0           # variance of Laplacian on pad+patch region
+  drift_max_dE: 3.0        # pad dE00 drift across the 5 read frames
+  strip_min_dE: 6.0        # pad vs empty-tray reference: strip present if dE00 >= this ...
+  strip_min_absdiff: 12.0  # ... or mean abs grey-level difference >= this
+  grey_chroma_max: 8.0     # grey patch chroma after correction (reference sanity)
+  max_frame_age_s: 2.0     # HTTP latency above this = stale frame
+
+model:
+  # Unknown rejection = max(floor, percentile(LOSO residuals) * factor)
+  reject_percentile: 99
+  reject_factor: 1.5
+  reject_floor_dE: 2.0
+  # Borderline band below the hold block, in log units: k * std of LOSO log-errors
+  band_k: 2.0
+  conc_offset_mg_L: 1.0    # log(c + offset) so that 0 mg/L is usable
+
+web:
+  host: 127.0.0.1
+  port: 5000
+  preview_fps: 2

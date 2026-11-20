@@ -1,0 +1,68 @@
+{
+ "frozen_at": "2026-11-20 10:43:44",
+ "phone": "http://192.168.29.229:8080",
+ "lighting_mode": "phone_torch",
+ "settings": {
+  "video_size": "1920x1080",
+  "photo_size": "1920x1080",
+  "quality": "90",
+  "night_vision": "off",
+  "scenemode": "auto",
+  "flashmode": "off",
+  "torch": "on",
+  "manual_sensor": "on",
+  "exposure_ns": "4548392",
+  "iso": "25",
+  "frame_duration": "16666666",
+  "whitebalance": "daylight",
+  "focusmode": "auto",
+  "focus_distance": "9.90",
+  "zoom": "100",
+  "coloreffect": "none",
+  "orientation": "landscape",
+  "mirror_flip": "none",
+  "antibanding": "off",
+  "ffc": "off"
+ },
+ "observe_only": [
+  "antibanding",
+  "coloreffect",
+  "ffc",
+  "mirror_flip",
+  "orientation",
+  "zoom"
+ ],
+ "focus_method": "single_af",
+ "sharpness_ref": {
+  "rect": [
+   610,
+   530,
+   740,
+   230
+  ],
+  "value": 204.24433607175357,
+  "region": "reference patches",
+  "refreshed_at": "2026-11-20 11:20:34"
+ },
+ "log": [
+  "set video_size=1920x1080",
+  "set photo_size=1920x1080",
+  "set quality=90",
+  "set night_vision=off",
+  "set scenemode=auto",
+  "set flashmode=off",
+  "torch on (phone_torch)",
+  "set manual_sensor=off",
+  "set whitebalance=auto",
+  "single autofocus on pad + patches (roi.json): sharpness 167.6",
+  "manual focus sweep on pad + patches (roi.json): best focus_distance=10.0 (sharpness 2.2; range 1.0..2.2)",
+  "focus locked by single autofocus (manual best 2.2 < 0.8 x AF 167.6; strip is closer than manual focus reaches)",
+  "wb incandescent: white chroma 35.94",
+  "wb fluorescent: white chroma 34.79",
+  "wb daylight: white chroma 11.53",
+  "wb cloudy-daylight: white chroma 22.62",
+  "white balance locked: preset daylight (white chroma 11.53)",
+  "exposure locked on white patch (roi.json): exposure 4.548 ms, ISO 25, level 221/255 (target 215)"
+ ],
+ "manual_steps_needed": []
+}

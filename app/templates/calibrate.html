@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StripDock calibration</title>
+<style>
+  :root { --bg:#111418; --card:#1b2027; --line:#2c333d; --text:#eef1f4; --dim:#9aa4af; --ok:#30a46c; --bad:#e5484d; }
+  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.4 "Segoe UI", system-ui, sans-serif; }
+  .wrap { padding:14px 18px; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  a { color:var(--dim); }
+  .bar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:10px 0; }
+  button { font-size:17px; padding:9px 14px; border-radius:9px; border:0; background:#3a4450; color:var(--text); cursor:pointer; }
+  button.sel { outline:3px solid #fff; }
+  button.done { background:#1f5136; }
+  #stage { position:relative; display:inline-block; max-width:100%; }
+  #img { max-width:100%; display:block; user-select:none; }
+  #cv { position:absolute; left:0; top:0; width:100%; height:100%; cursor:crosshair; }
+  .note { color:var(--dim); font-size:15px; }
+  #status { font-weight:600; min-height:1.3em; }
+</style>
+</head>
+<body><div class="wrap">
+  <h1>Region calibration</h1>
+  <div class="note">Do this only when the tray, phone or lid has moved. After training starts, never (a new ROI invalidates the model).
+    <a href="/">Back to the main screen</a></div>
+  <ol class="note">
+    <li>Pull the tray out, leave it EMPTY, slide it in, click <b>Capture EMPTY tray</b>.</li>
+    <li>Put a strip (dry is fine) in the tray against the end-stop, slide it in, click <b>Grab frame with strip</b>.</li>
+    <li>Pick a region button, then drag a rectangle on the picture. Repeat for every region. Draw inside the pad / patch, not over its edges.</li>
+    <li>Click <b>Save</b>.</li>
+  </ol>
+  <div class="bar">
+    <button id="emptyBtn">1. Capture EMPTY tray</button>
+    <button id="grabBtn">2. Grab frame with strip</button>
+    <span id="emptyState" class="note">empty tray: not captured</span>
+  </div>
+  <div class="bar" id="regionBtns">
+    {% for r in required %}<button data-r="{{r}}">{{r}}</button>{% endfor %}
+    {% for r in optional %}<button data-r="{{r}}">{{r}} (optional)</button>{% endfor %}
+  </div>
+  <div class="bar">
+    <label class="note"><input type="checkbox" id="overwrite"> I understand a new ROI invalidates any frozen model</label>
+    <button id="saveBtn">Save</button>
+    <span id="status"></span>
+  </div>
+  <div id="stage"><img id="img" alt="calibration frame"><canvas id="cv"></canvas></div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const COL = {nitrate_pad:'#ff00ff', nitrite_pad:'#ffa000', white:'#ffffff', grey:'#a0a0a0', black:'#00c8ff', anchor:'#00ff00'};
+let frameId = null, emptyId = null, W = 0, H = 0, cur = null, regions = {}, drag = null;
+async function post(url, body) {
+  const r = await fetch(url, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body||{})});
+  return r.json();
+}
+$('emptyBtn').onclick = async () => {
+  const j = await post('/api/calib/grab');
+  if (!j.ok) { $('status').textContent = j.error; return; }
+  emptyId = j.id; $('emptyState').textContent = 'empty tray: captured'; $('emptyBtn').classList.add('done');
+};
+$('grabBtn').onclick = async () => {
+  const j = await post('/api/calib/grab');
+  if (!j.ok) { $('status').textContent = j.error; return; }
+  frameId = j.id; W = j.w; H = j.h;
+  $('img').src = '/api/calib/frame/' + j.id + '.jpg';
+};
+$('img').onload = () => { const c = $('cv'); c.width = W; c.height = H; draw(); };
+document.querySelectorAll('#regionBtns button').forEach(b => b.onclick = () => {
+  cur = b.dataset.r; document.querySelectorAll('#regionBtns button').forEach(x => x.classList.toggle('sel', x === b));
+});
+function toImg(e) {
+  const r = $('cv').getBoundingClientRect();
+  return [(e.clientX - r.left) * W / r.width, (e.clientY - r.top) * H / r.height];
+}
+$('cv').onmousedown = e => { if (!cur || !frameId) { $('status').textContent = 'grab a frame and pick a region first'; return; } drag = toImg(e); };
+$('cv').onmousemove = e => { if (!drag) return; const p = toImg(e); regions[cur] = rect(drag, p); draw(); };
+window.onmouseup = e => { if (!drag) return; drag = null;
+  document.querySelector('#regionBtns button[data-r="'+cur+'"]').classList.add('done'); };
+function rect(a, b) { return [Math.min(a[0],b[0]), Math.min(a[1],b[1]), Math.abs(a[0]-b[0]), Math.abs(a[1]-b[1])]; }
+function draw() {
+  const c = $('cv'), g = c.getContext('2d'); g.clearRect(0, 0, c.width, c.height);
+  for (const [k, r] of Object.entries(regions)) {
+    g.strokeStyle = COL[k] || '#0f0'; g.lineWidth = 4; g.strokeRect(...r);
+    g.setLineDash([8, 6]); g.lineWidth = 2;
+    g.strokeRect(r[0] + r[2]*0.2, r[1] + r[3]*0.2, r[2]*0.6, r[3]*0.6); g.setLineDash([]);
+    g.fillStyle = COL[k] || '#0f0'; g.font = '34px Segoe UI'; g.fillText(k, r[0], Math.max(34, r[1] - 8));
+  }
+}
+$('saveBtn').onclick = async () => {
+  const j = await post('/api/calib/save', {frame_id: frameId, empty_id: emptyId, regions, confirm_overwrite: $('overwrite').checked});
+  $('status').textContent = j.ok ? ('Saved. ROI hash ' + j.roi_hash) : j.error;
+  $('status').style.color = j.ok ? 'var(--ok)' : 'var(--bad)';
+};
+</script>
+</body></html>

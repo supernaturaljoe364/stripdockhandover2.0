@@ -1,0 +1,96 @@
+{
+ "time": "2026-11-19 20:22:23",
+ "phone": "http://192.168.29.229:8080",
+ "n": 10,
+ "curvals_at_test": {
+  "orientation": "landscape",
+  "idle": "on",
+  "audio_only": "off",
+  "overlay": "off",
+  "quality": "49",
+  "focus_homing": "off",
+  "ip_address": "192.168.29.229",
+  "main_port": "8080",
+  "ipv6_address": "[2405:201:f002:d12b:98ef:7fff:fe70:d9a1]",
+  "motion_limit": "250",
+  "adet_limit": "200",
+  "night_vision": "off",
+  "night_vision_average": "2",
+  "night_vision_gain": "1.0",
+  "video_acquisition": "off",
+  "motion_detect": "off",
+  "motion_display": "off",
+  "video_chunk_len": "60",
+  "gps_active": "off",
+  "video_size": "1920x1080",
+  "mirror_flip": "none",
+  "ffc": "off",
+  "rtsp_video_formats": "",
+  "rtsp_audio_formats": "",
+  "video_connections": "0",
+  "audio_connections": "0",
+  "ivideon_streaming": "off",
+  "zoom": "100",
+  "crop_x": "50",
+  "crop_y": "50",
+  "focus_region": "-1001x-1001",
+  "coloreffect": "none",
+  "scenemode": "auto",
+  "focusmode": "auto",
+  "whitebalance": "auto",
+  "flashmode": "off",
+  "antibanding": "off",
+  "torch": "off",
+  "focus_distance": "0.0",
+  "focal_length": "5.4",
+  "aperture": "1.8",
+  "filter_density": "0.0",
+  "exposure_ns": "49856",
+  "frame_duration": "16666666",
+  "iso": "25",
+  "manual_sensor": "off",
+  "photo_size": "1920x1080",
+  "photo_rotation": "-1"
+ },
+ "endpoints": {
+  "/shot.jpg": {
+   "available": true,
+   "resolution": [
+    "1920x1080"
+   ],
+   "frames": 10,
+   "latency_mean_s": 0.08078970909118652,
+   "latency_max_s": 0.12188339233398438,
+   "dE00_mean": 0.1918097291275109,
+   "dE00_max": 0.47626052282514864,
+   "central_Lab_mean": [
+    33.59,
+    0.37,
+    -3.33
+   ],
+   "errors": []
+  },
+  "/photo.jpg": {
+   "available": true,
+   "resolution": [
+    "1920x1080"
+   ],
+   "frames": 10,
+   "latency_mean_s": 0.819660234451294,
+   "latency_max_s": 1.5655741691589355,
+   "dE00_mean": 0.6925195251732044,
+   "dE00_max": 0.9792555985870925,
+   "central_Lab_mean": [
+    32.95,
+    0.22,
+    -2.26
+   ],
+   "errors": []
+  }
+ },
+ "not_tested": {
+  "/photoaf.jpg": "autofocus: never used (would break the focus lock)"
+ },
+ "choice": "/shot.jpg",
+ "choice_reason": "stable colour and acceptable latency"
+}
