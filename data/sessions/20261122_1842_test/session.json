@@ -1,0 +1,14 @@
+{
+ "session": "20261122_1842_test",
+ "purpose": "test",
+ "operator": "team+claude",
+ "created": "2026-11-22 18:42:45",
+ "closed": true,
+ "lighting_mode": "phone_torch",
+ "camera_settings_hash": "231eb85694496d11",
+ "roi_hash": "a4857fd2db689a0d",
+ "quality_thresholds_hash": "c7ef74e6fa7f62d5",
+ "read_time_s": 60,
+ "model_sha256": "29933a5c798f5bf47bb7c150e590f73543d2af051ebde2163f08300ff95a0c42",
+ "closed_at": "2026-11-22 18:49:47"
+}
