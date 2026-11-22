@@ -1,0 +1,10 @@
+sample_id,series,container,water_mL,stock_B_added_mL,stock_B_total_mL,stock_B_mg_L,concentration_mg_L,note
+S0-A,A,1,100,0,0,921,0.00,
+S10-A,A,1,100,1.10,1.10,921,10.02,FAILED seated (41 px > 40); excluded; redone as S10-A2
+S10-A2,A,1,100,0,1.10,921,10.02,redo of S10-A from the same container
+S25-A,A,1,100,1.69,2.79,921,25.00,operator reported total 2.79
+S35-A,A,1,100,1.16,3.95,921,35.00,operator reported total 3.95
+S45-A,A,1,100,1.19,5.14,921,45.03,FAILED blur (one read frame blurred; bump); excluded; redone as S45-A2
+S45-A2,A,1,100,0,5.14,921,45.03,redo of S45-A from the same container
+S55-A,A,1,100,1.21,6.35,921,54.99,operator reported total 6.35
+S100-A,A,1,100,5.83,12.18,921,100.00,operator reported total 12.18

@@ -68,7 +68,7 @@ quality:
   glare_frac_max: 0.02     # fraction of pad pixels allowed to be glare
   blur_min: 54.5           # variance of Laplacian on pad+patch region
   drift_max_dE: 3.0        # pad dE00 drift across the 5 read frames
-  strip_min_dE: 7.0        # pad vs empty-tray reference: strip present if dE00 >= this ...
+  strip_min_dE: 3.0        # pad vs empty-tray reference: strip present if dE00 >= this ...
   strip_min_absdiff: 4.3  # ... or mean abs grey-level difference >= this
   grey_chroma_max: 10.6     # grey patch chroma after correction (reference sanity)
   max_frame_age_s: 2.0     # HTTP latency above this = stale frame

@@ -1,1 +1,8 @@
 sample_id,concentration_mg_L,standard_batch,strip_lot,tds_ppm,made_by,date
+S0-A,0,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22
+S10-A2,10.02,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22
+S25-A,25.00,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22
+S35-A,35.00,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22
+S45-A2,45.03,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22
+S55-A,54.99,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22
+S100-A,100.00,STOCK-B-20261120 series A (cumulative),7833,,team,2026-11-22

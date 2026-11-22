@@ -29,3 +29,9 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
      START-to-verdict ≈ 3 min because each failed frame request times out and is retried.
    - 5, drawer opened ~14:09 → **PASS** (UNKNOWN, light leak: black-patch jump 2.7 L* > 2.0). Thin margin: black level 24.9 < 27.5.
    - 6, dry strip → RECORDED: UNKNOWN only because no model exists yet; pad (95.5, −4.1, 14.8) ≈ wet 0 mg/L strips. **Repeat after freezing.**
+8. **Training series A** (container 1, 100 mL distilled + cumulative stock B; volumes in `training_volumes_20261122.csv`):
+   session `20261122_1411_train` (closed): S0-A ok, **S10-A failed seated (41 px > 40)** → S10-A2 ok, S25-A ok, S35-A ok.
+   D-45 (strip_min_dE 7 → 3) then session `20261122_1433_train`: **S45-A failed blur** (only read frame 0 at 60 s blurred, likely a bump of
+   the table) → S45-A2 ok, S55-A ok, S100-A ok. Corrected pad a*: 0 → −2.8, 10 → −1.4, 25 → +2.0, 35 → +6.0, 45 → +4.6, 55 → +3.4, 100 → +7.8.
+   "done X" replies were the cumulative stock total (confirmed by the pattern 2.79, 3.95, 5.14, 6.35, 12.18).
+   Two redo strips → blind test reduced 9 → 7 (demo keeps 2).
