@@ -1,0 +1,4 @@
+plan written 2026-11-22 12:17:17 before any read of 2026-11-22; seed 20261122 (training order), 20261123 (degraded order).
+Strip budget 28 (team count 2026-11-22): dry 3 (D1, W1, T1), training 14 (7 levels x 2), blind 9 (5 spiked_tap + 4 compliant),
+degraded 0 new (15 reads reusing strips), demo 2. Cut per MIGRATION_PROMPT section 5 rule: unseen standards (6) and the
+conservative pair (2) dropped, spiked 8->5, compliant 6->4. Agreed by the team in chat 2026-11-22.

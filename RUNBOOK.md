@@ -108,7 +108,7 @@ The thresholds are **frozen** when the model is frozen. Never change `config.yam
 
 ## 5. Training session
 
-Standards: **0, 10, 25, 35, 45, 55, 100 mg/L NO₃⁻** (nitrate ion, the bottle's unit), **3 strips each** (21 reads). Use strips from the same bottle lot.
+Standards: **0, 10, 25, 35, 45, 55, 100 mg/L NO₃⁻** (nitrate ion, the bottle's unit), **2 strips each** (14 reads, codes `S<level>-A` / `S<level>-B`), in the randomised order of `data/labels/collection_plan_20261122.csv` (DECISIONS D-41). Each level in its own rinsed cup. Use strips from the same bottle lot (7833).
 
 1. The chemistry person fills `data\labels\train_labels.csv` (columns: `sample_id, concentration_mg_L, standard_batch, strip_lot, tds_ppm, made_by, date`).
 2. In the app: purpose **train**, your name, **Start session**.

@@ -1,0 +1,47 @@
+order,sample_id,solution,nominal_mg_L,matrix,split,note
+1,E1,no strip (empty tray),,none,dry,note: empty
+2,E2,no strip (empty tray),,none,dry,note: empty
+3,E3,no strip (empty tray),,none,dry,note: empty
+4,D1,dry undipped strip,,none,dry,note: dry; strip kept for HIL step 6 and degraded reads
+5,W1,strip dipped 1 s in distilled water,0,distilled,dry,note: distilled
+6,T1,strip dipped 1 s in tap water,,tap,dry,note: tap
+7,S25-A,25 mg/L in distilled (own cup),25,distilled,train,
+8,S10-A,10 mg/L in distilled (own cup),10,distilled,train,
+9,S100-B,100 mg/L in distilled (own cup),100,distilled,train,
+10,S0-B,0 mg/L in distilled (own cup),0,distilled,train,
+11,S35-B,35 mg/L in distilled (own cup),35,distilled,train,
+12,S55-B,55 mg/L in distilled (own cup),55,distilled,train,
+13,S25-B,25 mg/L in distilled (own cup),25,distilled,train,
+14,S100-A,100 mg/L in distilled (own cup),100,distilled,train,
+15,S0-A,0 mg/L in distilled (own cup),0,distilled,train,
+16,S35-A,35 mg/L in distilled (own cup),35,distilled,train,
+17,S55-A,55 mg/L in distilled (own cup),55,distilled,train,
+18,S10-B,10 mg/L in distilled (own cup),10,distilled,train,
+19,S45-A,45 mg/L in distilled (own cup),45,distilled,train,
+20,S45-B,45 mg/L in distilled (own cup),45,distilled,train,
+21,B01,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+22,B02,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+23,B03,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+24,B04,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+25,B05,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+26,B06,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+27,B07,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+28,B08,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+29,B09,coded by chemistry person (5 spiked_tap 60-100 mg/L in tap TDS<300; 4 compliant 0-10 mg/L),,hidden,test,
+30,G01,used strip (blur),,reuse,degraded,blur
+31,G02,used strip (phone_moved),,reuse,degraded,phone_moved
+32,G03,used strip (drawer_open),,reuse,degraded,drawer_open
+33,G04,used strip (no_strip),,reuse,degraded,no_strip
+34,G05,used strip (blur),,reuse,degraded,blur
+35,G06,used strip (torch_through_seam),,reuse,degraded,torch_through_seam
+36,G07,used strip (torch_through_seam),,reuse,degraded,torch_through_seam
+37,G08,used strip (drawer_open),,reuse,degraded,drawer_open
+38,G09,used strip (early_read),,reuse,degraded,early_read
+39,G10,used strip (phone_moved),,reuse,degraded,phone_moved
+40,G11,used strip (drawer_open),,reuse,degraded,drawer_open
+41,G12,used strip (early_read),,reuse,degraded,early_read
+42,G13,used strip (no_strip),,reuse,degraded,no_strip
+43,G14,used strip (early_read),,reuse,degraded,early_read
+44,G15,used strip (no_strip),,reuse,degraded,no_strip
+45,DEMO-1,spiked tap sample (expected HOLD),,tap,demo,
+46,DEMO-2,compliant sample (expected PASS + CONFIRM button),,distilled,demo,
