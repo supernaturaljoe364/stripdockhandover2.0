@@ -8,3 +8,4 @@ S45-A,A,1,100,1.19,5.14,921,45.03,FAILED blur (one read frame blurred; bump); ex
 S45-A2,A,1,100,0,5.14,921,45.03,redo of S45-A from the same container
 S55-A,A,1,100,1.21,6.35,921,54.99,operator reported total 6.35
 S100-A,A,1,100,5.83,12.18,921,100.00,operator reported total 12.18
+S0-B,B,2,100,0,0,921,0.00,

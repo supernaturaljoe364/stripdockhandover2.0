@@ -3,11 +3,12 @@
  "purpose": "train",
  "operator": "team+claude",
  "created": "2026-11-22 14:33:52",
- "closed": false,
+ "closed": true,
  "lighting_mode": "phone_torch",
  "camera_settings_hash": "231eb85694496d11",
  "roi_hash": "a4857fd2db689a0d",
  "quality_thresholds_hash": "c7ef74e6fa7f62d5",
  "read_time_s": 60,
- "model_sha256": null
+ "model_sha256": null,
+ "closed_at": "2026-11-22 14:53:41"
 }
