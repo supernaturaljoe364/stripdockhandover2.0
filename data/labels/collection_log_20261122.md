@@ -24,3 +24,8 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
    strip dE 12.9, glare 0, drift 0.47). Pad (94.9, −2.9, 15.2) ≈ distilled W1: tap water's own nitrate looks low (indicative only).
 6. **Quality thresholds applied** (14:00) from sessions 20261122_1252_dry + 20261122_1348_dry (3 strip reads, 3 empty):
    `results/threshold_suggestions.md`. drift_max_dE kept at 3.0; re-check with `--with-train` before freezing.
+7. **HIL 4–6 with D1** (`results/hil_log.md`, sessions 20261122_1404/1408/1410_dry, closed):
+   - 4, phone USB cable pulled ~14:05 during the countdown → **PASS** (UNKNOWN, "no read frames received"; panel stayed HOLD).
+     START-to-verdict ≈ 3 min because each failed frame request times out and is retried.
+   - 5, drawer opened ~14:09 → **PASS** (UNKNOWN, light leak: black-patch jump 2.7 L* > 2.0). Thin margin: black level 24.9 < 27.5.
+   - 6, dry strip → RECORDED: UNKNOWN only because no model exists yet; pad (95.5, −4.1, 14.8) ≈ wet 0 mg/L strips. **Repeat after freezing.**

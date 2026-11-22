@@ -178,7 +178,7 @@ Close the app. Then:
 ```
 .venv\Scripts\python tools\hil_check.py
 ```
-Follow the prompts. Results go to `results\hil_log.md`. Steps 1–3 (panel) were done on 2026-11-19 and passed. Steps 4–6 are still **pending**: (4) phone link lost mid-read: **unplug the phone's USB cable** (or stop IP Webcam's server) during the countdown, expected **UNKNOWN: re-test**; (5) drawer opened mid-read, expected UNKNOWN; (6) dry, undipped strip, result recorded. Wi-Fi is no longer used (D-36), so "phone off Wi-Fi" is replaced by pulling the cable.
+Follow the prompts. Results go to `results\hil_log.md`. Steps 1–3 (panel) were done on 2026-11-19 and passed. Steps 4–5 **passed on 2026-11-22** (step 6 to be repeated once a model exists). The steps: (4) phone link lost mid-read: **unplug the phone's USB cable** (or stop IP Webcam's server) during the countdown, expected **UNKNOWN: re-test**; (5) drawer opened mid-read, expected UNKNOWN; (6) dry, undipped strip, result recorded. Wi-Fi is no longer used (D-36), so "phone off Wi-Fi" is replaced by pulling the cable.
 
 ## 11. Troubleshooting
 

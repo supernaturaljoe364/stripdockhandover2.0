@@ -1,0 +1,675 @@
+{
+ "sample_id": "HIL_phone_link_lost",
+ "folder": "HIL_phone_link_lost",
+ "mode": "dry",
+ "session": "20261122_1404_dry",
+ "note": "phone_link_lost",
+ "t_start": "2026-11-22 14:04:38",
+ "start_to_verdict_s": 188.5,
+ "read_time_s": 60.0,
+ "read_offsets_s": [
+  0.0,
+  1.5,
+  3.0,
+  4.5,
+  6.0
+ ],
+ "lighting_mode": "phone_torch",
+ "camera_settings_hash": "231eb85694496d11",
+ "roi_hash": "a4857fd2db689a0d",
+ "quality_thresholds": {
+  "black_L_max": 27.5,
+  "black_jump_max": 2.0,
+  "white_L_min": 71.0,
+  "white_L_max": 83.2,
+  "white_clip_frac_max": 0.01,
+  "clip_level": 250,
+  "glare_level": 240,
+  "glare_margin": 10,
+  "glare_sat_max": 0.12,
+  "glare_frac_max": 0.02,
+  "blur_min": 54.5,
+  "drift_max_dE": 3.0,
+  "strip_min_dE": 7.0,
+  "strip_min_absdiff": 4.3,
+  "grey_chroma_max": 10.6,
+  "max_frame_age_s": 2.0
+ },
+ "roi_locate": {
+  "shrink_frac": 0.2,
+  "shift_tol_px": 30,
+  "search_px": 60,
+  "min_match_score": 0.6,
+  "strip_tol_px": 40,
+  "strip_min_score": 0.75
+ },
+ "model": null,
+ "checks": [
+  {
+   "name": "phone",
+   "passed": false,
+   "value": 39,
+   "threshold": "no HTTP errors, frame age <= 2.0 s",
+   "reason": "phone unreachable / stale frame: monitor25: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d710>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "name": "frames",
+   "passed": false,
+   "value": 0,
+   "threshold": ">= 1 read frame",
+   "reason": "no read frames received from the phone"
+  }
+ ],
+ "quality_ok": false,
+ "metrics": {
+  "black_L_series": [
+   21.19,
+   21.47,
+   21.19,
+   21.16,
+   21.19,
+   21.16,
+   21.19,
+   21.19,
+   21.16,
+   21.19,
+   21.5,
+   21.16,
+   21.19,
+   21.19,
+   21.5,
+   21.19,
+   21.5,
+   21.19,
+   21.16,
+   21.19,
+   21.19,
+   21.5,
+   21.19,
+   21.19,
+   21.16
+  ],
+  "black_jump_max": 0.33995167243864444,
+  "latency_max_s": 0.07174205780029297,
+  "n_errors": 39,
+  "n_retries": 39,
+  "retries": [
+   "monitor25: frame request failed (/shot.jpg): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+   "monitor26: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff960350>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor27: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff963f10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor28: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f610>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor29: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96e950>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor30: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff8daf10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor31: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96d350>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor32: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95c490>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor33: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff9531d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor34: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d650>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor35: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff960150>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor36: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3c0d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor37: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95ead0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor38: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f1d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor39: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3c6d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor40: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95ce50>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor41: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95fdd0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor42: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3cf10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor43: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96f490>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "monitor44: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c28890>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  ]
+ },
+ "features": null,
+ "prediction": null,
+ "verdict": {
+  "command": "UNKNOWN",
+  "reasons": [
+   "phone unreachable / stale frame: monitor25: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d710>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+   "no read frames received from the phone"
+  ],
+  "est_mg_L": null,
+  "block_mg_L": null,
+  "borderline": false,
+  "distance_dE": null,
+  "display": "UNKNOWN: re-test"
+ },
+ "panel": {
+  "sent": true,
+  "reply_state": "HOLD",
+  "delivered": true
+ },
+ "monitor": [
+  {
+   "t": 1.05,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null,
+   "file": "frames/monitor_000.jpg"
+  },
+  {
+   "t": 2.07,
+   "black_L": 21.47158191134966,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 3.04,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 4.07,
+   "black_L": 21.162537744779087,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 5.05,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 6.05,
+   "black_L": 21.162537744779087,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null,
+   "file": "frames/monitor_005.jpg"
+  },
+  {
+   "t": 7.08,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 8.05,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 9.05,
+   "black_L": 21.162537744779087,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 10.04,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 11.07,
+   "black_L": 21.50248941721773,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null,
+   "file": "frames/monitor_010.jpg"
+  },
+  {
+   "t": 12.1,
+   "black_L": 21.162537744779087,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 13.08,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 14.04,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 15.04,
+   "black_L": 21.50248941721773,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 16.04,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null,
+   "file": "frames/monitor_015.jpg"
+  },
+  {
+   "t": 17.05,
+   "black_L": 21.50248941721773,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 18.06,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 19.08,
+   "black_L": 21.162537744779087,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 20.04,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 21.07,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null,
+   "file": "frames/monitor_020.jpg"
+  },
+  {
+   "t": 22.06,
+   "black_L": 21.50248941721773,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 23.05,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 24.08,
+   "black_L": 21.193960791279693,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 25.07,
+   "black_L": 21.162537744779087,
+   "located": true,
+   "shift": [
+    5,
+    -19
+   ],
+   "error": null
+  },
+  {
+   "t": 28.23,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor25: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d710>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 32.45,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor26: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff8d96d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 36.66,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor27: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff961090>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 40.88,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor28: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff8da9d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 45.09,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor29: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95c810>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 49.31,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor30: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96fd90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 53.53,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor31: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff962f10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 57.75,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor32: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c28110>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 61.98,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor33: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff961c50>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 66.2,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor34: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f010>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 70.41,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor35: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2b2d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 74.63,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor36: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96fed0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 78.85,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor37: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff963090>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 83.07,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor38: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c295d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 87.28,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor39: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff960e10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 91.5,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor40: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96ce10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 95.71,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor41: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2a110>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 99.93,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor42: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96e6d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 104.15,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor43: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d1d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 108.36,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor44: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff9622d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 112.58,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor45: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95ebd0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 116.81,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor46: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2ad90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 121.03,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor47: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96e850>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 125.25,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor48: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2bc10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 129.47,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor49: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f510>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 133.69,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor50: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3ce90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 137.91,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor51: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95ee90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 142.12,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor52: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96c250>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 146.34,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor53: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3e110>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 150.55,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor54: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3fb10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 154.77,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor55: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff951dd0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 158.98,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor56: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96c950>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 163.19,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor57: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff953450>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  },
+  {
+   "t": 167.41,
+   "black_L": null,
+   "located": null,
+   "shift": null,
+   "error": "monitor58: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3cad0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+  }
+ ],
+ "frames": [],
+ "errors": [
+  "monitor25: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d710>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor26: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff8d96d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor27: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff961090>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor28: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff8da9d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor29: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95c810>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor30: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96fd90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor31: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff962f10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor32: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c28110>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor33: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff961c50>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor34: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f010>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor35: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2b2d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor36: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96fed0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor37: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff963090>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor38: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c295d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor39: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff960e10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor40: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96ce10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor41: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2a110>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor42: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96e6d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor43: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95d1d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor44: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff9622d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor45: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95ebd0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor46: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2ad90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor47: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96e850>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor48: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2bc10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor49: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f510>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor50: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3ce90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor51: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95ee90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor52: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96c250>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor53: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3e110>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor54: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3fb10>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor55: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff951dd0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor56: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff96c950>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor57: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff953450>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "monitor58: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3cad0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "read0: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95f5d0>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "read1: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c3c610>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "read2: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20bff95fc90>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "read3: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2ac50>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))",
+  "read4: frame request failed (/shot.jpg): HTTPConnectionPool(host='127.0.0.1', port=8080): Max retries exceeded with url: /shot.jpg (Caused by ConnectTimeoutError(<HTTPConnection(host='127.0.0.1', port=8080) at 0x20b84c2bc50>, 'Connection to 127.0.0.1 timed out. (connect timeout=2.0)'))"
+ ]
+}

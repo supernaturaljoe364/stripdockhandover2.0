@@ -1,0 +1,14 @@
+{
+ "session": "20261122_1410_dry",
+ "purpose": "dry",
+ "operator": "hil_check",
+ "created": "2026-11-22 14:10:01",
+ "closed": true,
+ "lighting_mode": "phone_torch",
+ "camera_settings_hash": "231eb85694496d11",
+ "roi_hash": "a4857fd2db689a0d",
+ "quality_thresholds_hash": "96f4851a63526907",
+ "read_time_s": 60,
+ "model_sha256": null,
+ "closed_at": "2026-11-22 14:11:15"
+}
