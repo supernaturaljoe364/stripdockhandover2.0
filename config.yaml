@@ -56,21 +56,21 @@ roi:
 # Quality gate thresholds (FREEZE). Initial values are placeholders until set from dry
 # captures with tools/suggest_thresholds.py. Values are L* (0-100), dE00, fractions.
 quality:
-  black_L_max: 25.0        # raw black patch L* above this = light leak
-  black_jump_max: 4.0      # frame-to-frame black-patch L* jump above this = light leak
-  white_L_min: 60.0        # raw white patch L* range
-  white_L_max: 97.0
+  black_L_max: 27.5        # raw black patch L* above this = light leak
+  black_jump_max: 2.0      # frame-to-frame black-patch L* jump above this = light leak
+  white_L_min: 71.0        # raw white patch L* range
+  white_L_max: 83.2
   white_clip_frac_max: 0.01
   clip_level: 250          # 8-bit value counted as clipped
   glare_level: 240         # near-saturated pixel (max channel >=) ...
   glare_margin: 10         # ... and brighter than the white patch + this (capped at clip_level)
   glare_sat_max: 0.12      # low chroma: (max-min)/max <=
   glare_frac_max: 0.02     # fraction of pad pixels allowed to be glare
-  blur_min: 15.0           # variance of Laplacian on pad+patch region
+  blur_min: 54.5           # variance of Laplacian on pad+patch region
   drift_max_dE: 3.0        # pad dE00 drift across the 5 read frames
-  strip_min_dE: 6.0        # pad vs empty-tray reference: strip present if dE00 >= this ...
-  strip_min_absdiff: 12.0  # ... or mean abs grey-level difference >= this
-  grey_chroma_max: 8.0     # grey patch chroma after correction (reference sanity)
+  strip_min_dE: 7.0        # pad vs empty-tray reference: strip present if dE00 >= this ...
+  strip_min_absdiff: 4.3  # ... or mean abs grey-level difference >= this
+  grey_chroma_max: 10.6     # grey patch chroma after correction (reference sanity)
   max_frame_age_s: 2.0     # HTTP latency above this = stale frame
 
 model:

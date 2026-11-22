@@ -133,8 +133,16 @@ def main():
     elif not a.now:
         info = wait_for_strip(cfg, a.timeout, a.settle, need_away=not a.no_away)
         print(f"Strip in place {time.strftime('%H:%M:%S')}: {info}", flush=True)
-    r = guided_read.call("/api/read/start", {"sample_id": a.sample_id, "concentration": a.conc, "note": a.note,
-                                            "degradation": a.degradation, "send_to_panel": not a.no_panel})
+    body = {"sample_id": a.sample_id, "concentration": a.conc, "note": a.note,
+            "degradation": a.degradation, "send_to_panel": not a.no_panel}
+    r = guided_read.call("/api/read/start", body)
+    if not r.get("ok") and "Camera locked" in str(r.get("error")):
+        # The app's periodic camera check may have caught the tray moving (sharpness dip).
+        # Ask for a fresh check once; START only proceeds if the camera really is locked.
+        print("START blocked by the camera check; re-checking once:", r.get("error"), flush=True)
+        c = guided_read.call("/api/camcheck", {})
+        print("  camera re-check:", c, flush=True)
+        r = guided_read.call("/api/read/start", body)
     if not r.get("ok"):
         print("NOT STARTED:", r.get("error"))
         return 1

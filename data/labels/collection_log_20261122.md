@@ -19,3 +19,8 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
    the tray was still moving; `lock_camera.py --check` passed 1 min later). Read at 13:39 **late (~6 min after the dip)**, noted in
    meta.json. Only `seated` failed (strip 39 px > 25). Pad (94.4, −3.3, 16.3) ≈ dry D1 (95.5, −4.1, 14.8): dry and 0 mg/L look alike (D-30 stands).
 4. **D-44** (13:45): tolerance changed to tray 30 px / strip 40 px with tip match ≥ 0.75, before any training read.
+5. **T1 (tap), session `20261122_1348_dry`** (13:59, START on the operator's chat reply; the team asked to stop camera-based
+   auto-START, so dip-to-START is no longer measured, est. 15–40 s): all checks pass (tray 19 px, strip 32 px, tip match ok,
+   strip dE 12.9, glare 0, drift 0.47). Pad (94.9, −2.9, 15.2) ≈ distilled W1: tap water's own nitrate looks low (indicative only).
+6. **Quality thresholds applied** (14:00) from sessions 20261122_1252_dry + 20261122_1348_dry (3 strip reads, 3 empty):
+   `results/threshold_suggestions.md`. drift_max_dE kept at 3.0; re-check with `--with-train` before freezing.
