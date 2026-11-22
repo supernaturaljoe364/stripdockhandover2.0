@@ -35,3 +35,10 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
    the table) → S45-A2 ok, S55-A ok, S100-A ok. Corrected pad a*: 0 → −2.8, 10 → −1.4, 25 → +2.0, 35 → +6.0, 45 → +4.6, 55 → +3.4, 100 → +7.8.
    "done X" replies were the cumulative stock total (confirmed by the pattern 2.79, 3.95, 5.14, 6.35, 12.18).
    Two redo strips → blind test reduced 9 → 7 (demo keeps 2).
+9. **Model frozen 15:01** (D-46). **After freezing, the dock was disturbed (≈15:00–17:45), a deviation:** the phone/lid moved (patch row −23 px
+   sideways, view hazy: raw black L* 21 → 44, grey 33 → 55, white 79 → 84, sharpness 596 → ~280). The team wiped the lens and repositioned the
+   phone; the tray was also found pulled out. Re-aligned with the new `tools/align_phone.py` (live red-outline overlay); the team stopped at
+   offset (+19, +7) px, rotation ≈ 3.1°. Then: patch row found at (11, 15) px, score 0.90; raw white 79.1, grey 37.1, black 26.0 (limit 27.5).
+   Autofocus settles at sharpness ≈ 270–280 in this position, so `lock_camera.py --refresh-focus-ref` was run (280.3; camera settings hash
+   unchanged 231eb85694496d11). ROI, camera settings and thresholds are unchanged, so the frozen model still matches, but **the physical
+   geometry differs slightly from training** (≈3° rotation, a little residual haze); blind results must be read with this caveat.

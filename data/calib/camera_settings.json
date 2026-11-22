@@ -40,9 +40,9 @@
    665,
    150
   ],
-  "value": 596.3953274327673,
+  "value": 280.251044434746,
   "region": "reference patches",
-  "refreshed_at": "2026-11-22 12:51:46"
+  "refreshed_at": "2026-11-22 17:46:35"
  },
  "log": [
   "set video_size=1920x1080",
