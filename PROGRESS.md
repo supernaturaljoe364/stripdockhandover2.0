@@ -173,3 +173,9 @@ None needed.
 - **D-43:** seated tolerance 25 px / search 50 px, frozen into the model (`app/station.py` `frozen_mismatches`, `train.py` `roi_locate`; new `tests/test_frozen_match.py`, 3 tests).
 - **New tool** `tools/auto_read.py` (D-42): starts the read when the strip is seated, so operators only handle strips.
 - App restarted 12:55: checklist green except "Session open".
+- **14:00–14:11** thresholds applied; HIL 4 PASS, HIL 5 PASS, HIL 6 recorded (no model yet).
+- **14:11–14:50** training series A (+ 2 redo strips) and S0-B; **D-45** strip_min_dE 3.0. Series B skipped (team, D-46).
+- **14:58** `train.py` (8 reads, curve, band from 4.5 mg/L); **15:01** `freeze_model.py` (sha256 29933a5c…).
+- **15:00–17:50** phone/lid disturbed after freezing (haze, offset, 3° turn); re-aligned with new `tools/align_phone.py`; focus ref refreshed.
+- **17:46–18:49** blind test B01–B13 in two sessions (closed, INTACT). **18:51** answer key (revealed after closing) + `evaluate.py`.
+- Final tests before push: see the commit message.

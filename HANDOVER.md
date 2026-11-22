@@ -8,6 +8,34 @@ The original brief is `StripDock_R3_MASTER_PROMPT.md`. Its **rules on honesty an
 
 ---
 
+## 0. Status at the end of 2026-11-22 (new laptop) — read this first
+
+Done today (details: `PROGRESS.md` "Day 4", `data/labels/collection_log_20261122.md`, DECISIONS D-41 to D-46):
+- Migrated to the new laptop (Python 3.11.6, `requirements.txt`, adb in `.platform-tools/`, panel on COM7, phone over USB). 93 tests pass.
+- Recalibrated (ROI `a4857fd2db689a0d`, camera hash `231eb85694496d11`), dry runs, quality thresholds applied, HIL 4 and 5 **PASS**.
+- Seated tolerance widened (D-44: tray 30 px, strip 40 px with strong tip match) and frozen into the model; strip_min_dE 3.0 (D-45).
+- Training: series A + S0-B (8 reads); series B skipped by the team (D-46). **Model frozen 15:01** (`models/frozen/model_20261122_150113.json`).
+- Blind test: B01–B13 (18 reads, sessions `20261122_1746_test`, `20261122_1842_test`, closed). Answer key revealed afterwards and
+  `evaluate.py` run: spiked tap 0/4 missed; compliant 0 mg/L held 2/2 samples (false holds); conservative 3/3 held; every sample HOLD.
+  Numbers with sources: `results/report_numbers.md`; full tables: `results/round3_results.md`.
+- **No new strips are left.** Only D1 (dry, undipped, kept clean) remains.
+
+Open for 23–24 Nov:
+1. **Start of day:** plug in panel + phone, IP Webcam *Start server*, `.venv\Scripts\python tools\lock_camera.py`, then `--check`.
+   If the phone or lid was touched, run `toolslign_phone.py` (red outlines = calibrated view; nudge until GREEN). Don't recalibrate:
+   the frozen model belongs to ROI `a4857fd2db689a0d`. Air the box between wet strips (fog lowered sharpness to the blur limit today).
+2. **Confirm with the chemistry person** that the blind numbers were mL of stock B in 100 mL of water (assumed in
+   `data/labels/blind_preparation_20261122.csv`). If tap-water TDS can be measured, add it to `test_answer_key.csv` (`tds_ppm`) and run
+   `evaluate.py --tag tds`.
+3. **HIL 6 with the frozen model:** dry strip D1, `tools\hil_check.py --steps 6` (close the app first).
+4. **Degraded session** (no new strips: reuse D1): purpose `degraded`, codes G01–G15 from `data/labels/collection_plan_20261122.csv`,
+   then close it and run `evaluate.py` again (it reads all closed test + degraded sessions).
+5. **Demo (RUNBOOK §10) needs 2 new strips.** Caution: in the blind test both 0 mg/L samples were estimated 12–13 mg/L and HELD
+   (borderline band from 4.5 mg/L), so a live **PASS + CONFIRM may not happen** with this model. Don't retune it. Options: film the
+   PASS → CONFIRM → button path with `tools\hil_check.py --steps 3` (a labelled panel test, verified 19 Nov), or film whatever the
+   live read gives and say so. Drawer-pulled (UNKNOWN) and USB-pulled (hold survives) need no strips.
+6. Report: copy only numbers that have a source in `results/report_numbers.md`; state the caveats listed there.
+
 ## 1. What StripDock is (one paragraph)
 
 A phone (IP Webcam app) looks down into a light-tight box at a water-test strip. The PC app reads the **nitrate pad** 60 s after dipping, checks image quality, corrects the colour with the white patch, and converts colour to an estimated nitrate (mg/L NO₃⁻) using a calibration curve **trained on our own standards**. It then sends **HOLD** (≥ 25 mg/L or borderline), **PASS** or **UNKNOWN** (any doubt) over USB to an **Arduino Nano panel** (OLED, HOLD/CONFIRM LEDs, CONFIRM button). A hold is cleared only by a PASS plus a physical button press. The software **never** says water is safe.

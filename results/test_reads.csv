@@ -1,0 +1,19 @@
+acceptable,block_mg_L,borderline,est_mg_L,folder,panel_reply,reasons,recomputed,reference_est_mg_L,reference_rejected,sample_id,session,start_to_verdict_s,tds_ppm,true_mg_L,type,verdict,within
+"[10.0, 25.0]",,False,,B01,HOLD,strip moved 60 px (> 40); strip not seated,UNKNOWN,3.5723093063452804,False,B01,20261122_1746_test,66.07,,18.06,unseen_standard,UNKNOWN,False
+"[10.0, 25.0]",,False,,B01_r2,HOLD,blurred image (sharpness 53.5),UNKNOWN,15.671976918449381,False,B01,20261122_1746_test,66.12,,18.06,unseen_standard,UNKNOWN,False
+"[10.0, 25.0]",,False,,B01_r3,HOLD,blurred image (sharpness 45.6),UNKNOWN,25.0,False,B01,20261122_1746_test,66.1,,18.06,unseen_standard,UNKNOWN,False
+"[10.0, 25.0]",25.0,True,18.6005122430467,B01_r4,HOLD,borderline: estimated 19 mg/L is within the band 4.5-25 mg/L below the hold block (conservative),HOLD,17.59438520443536,False,B01,20261122_1746_test,66.08,,18.06,unseen_standard,HOLD,True
+,10.0,True,12.996203610810369,B02,HOLD,borderline: estimated 13 mg/L is within the band 4.5-25 mg/L below the hold block (conservative),HOLD,3.9331635108081464,False,B02,20261122_1746_test,66.1,,0.0,compliant,HOLD,
+,25.0,False,25.47479512645984,B03,HOLD,estimated 25 mg/L NO3- >= 25 mg/L hold block,HOLD,25.0,False,B03,20261122_1746_test,66.07,,40.5,conservative,HOLD,
+,25.0,False,27.86351153669192,B04,HOLD,estimated 28 mg/L NO3- >= 25 mg/L hold block,HOLD,53.29399921870905,False,B04,20261122_1746_test,66.08,,74.49,spiked_tap,HOLD,
+,100.0,False,85.38903277357805,B05,HOLD,estimated 85 mg/L NO3- >= 25 mg/L hold block,HOLD,35.0,False,B05,20261122_1746_test,66.09,,122.91,spiked_tap,HOLD,
+,100.0,False,95.09148118857544,B06,HOLD,estimated 95 mg/L NO3- >= 25 mg/L hold block,HOLD,100.0,False,B06,20261122_1746_test,66.08,,144.44,spiked_tap,HOLD,
+,100.0,False,99.7506197056893,B07,HOLD,estimated 100 mg/L NO3- >= 25 mg/L hold block,HOLD,100.0,False,B07,20261122_1746_test,66.09,,153.5,spiked_tap,HOLD,
+,,False,,B08,HOLD,blurred image (sharpness 53.8),UNKNOWN,15.550029415136656,False,B08,20261122_1746_test,66.08,,0.0,compliant,UNKNOWN,
+,,False,,B08_r2,HOLD,blurred image (sharpness 52.2),UNKNOWN,16.356807963181712,False,B08,20261122_1746_test,66.08,,0.0,compliant,UNKNOWN,
+,10.0,True,11.566319457068346,B08_r3,HOLD,borderline: estimated 12 mg/L is within the band 4.5-25 mg/L below the hold block (conservative),HOLD,4.579318226232426,False,B08,20261122_1746_test,66.08,,0.0,compliant,HOLD,
+,25.0,True,21.777940357157544,B09,HOLD,borderline: estimated 22 mg/L is within the band 4.5-25 mg/L below the hold block (conservative),HOLD,25.0,False,B09,20261122_1746_test,66.06,,30.28,conservative,HOLD,
+,50.0,False,54.990000000000016,B10,HOLD,estimated 55 mg/L NO3- >= 25 mg/L hold block,HOLD,52.866665803177625,False,B10,20261122_1746_test,66.07,,38.82,conservative,HOLD,
+"[50.0, 100.0]",50.0,False,62.73845554698209,B11,HOLD,estimated 63 mg/L NO3- >= 25 mg/L hold block,HOLD,48.806033407694954,False,B11,20261122_1842_test,66.1,,60.25,unseen_standard,HOLD,True
+"[50.0, 100.0]",100.0,False,80.7777341832336,B12,HOLD,estimated 81 mg/L NO3- >= 25 mg/L hold block,HOLD,35.0,False,B12,20261122_1842_test,66.14,,94.25,unseen_standard,HOLD,True
+"[100.0, 250.0]",100.0,False,100.00000000000003,B13,HOLD,estimated 100 mg/L NO3- >= 25 mg/L hold block,HOLD,100.0,False,B13,20261122_1842_test,66.08,,133.82,unseen_standard,HOLD,True
