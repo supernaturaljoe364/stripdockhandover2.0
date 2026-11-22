@@ -1,0 +1,1638 @@
+{
+ "sample_id": "B10",
+ "folder": "B10",
+ "mode": "test",
+ "session": "20261122_1746_test",
+ "note": "blind; START on chat reply",
+ "t_start": "2026-11-22 18:40:53",
+ "start_to_verdict_s": 66.07,
+ "read_time_s": 60.0,
+ "read_offsets_s": [
+  0.0,
+  1.5,
+  3.0,
+  4.5,
+  6.0
+ ],
+ "lighting_mode": "phone_torch",
+ "camera_settings_hash": "231eb85694496d11",
+ "roi_hash": "a4857fd2db689a0d",
+ "quality_thresholds": {
+  "black_L_max": 27.5,
+  "black_jump_max": 2.0,
+  "white_L_min": 71.0,
+  "white_L_max": 83.2,
+  "white_clip_frac_max": 0.01,
+  "clip_level": 250,
+  "glare_level": 240,
+  "glare_margin": 10,
+  "glare_sat_max": 0.12,
+  "glare_frac_max": 0.02,
+  "blur_min": 54.5,
+  "drift_max_dE": 3.0,
+  "strip_min_dE": 3.0,
+  "strip_min_absdiff": 4.3,
+  "grey_chroma_max": 10.6,
+  "max_frame_age_s": 2.0
+ },
+ "roi_locate": {
+  "shrink_frac": 0.2,
+  "shift_tol_px": 30,
+  "search_px": 60,
+  "min_match_score": 0.6,
+  "strip_tol_px": 40,
+  "strip_min_score": 0.75
+ },
+ "model": {
+  "file": "model_20261122_150113.json",
+  "sha256": "29933a5c798f5bf47bb7c150e590f73543d2af051ebde2163f08300ff95a0c42",
+  "frozen": true,
+  "primary": "curve"
+ },
+ "checks": [
+  {
+   "name": "phone",
+   "passed": true,
+   "value": 0.0883333683013916,
+   "threshold": "no HTTP errors, frame age <= 2.0 s",
+   "reason": ""
+  },
+  {
+   "name": "seated",
+   "passed": true,
+   "value": 1.0,
+   "threshold": "regions re-located within tolerance",
+   "reason": ""
+  },
+  {
+   "name": "light_leak",
+   "passed": true,
+   "value": 20.012188060473207,
+   "threshold": "black L* <= 27.5, jump <= 2.0",
+   "reason": ""
+  },
+  {
+   "name": "exposure",
+   "passed": true,
+   "value": 79.78880000000001,
+   "threshold": "71.0 <= white L* <= 83.2, clipped < 1%",
+   "reason": ""
+  },
+  {
+   "name": "glare",
+   "passed": true,
+   "value": 0.0,
+   "threshold": "glare fraction <= 0.02",
+   "reason": ""
+  },
+  {
+   "name": "blur",
+   "passed": true,
+   "value": 111.52810300604237,
+   "threshold": "Laplacian variance >= 54.5",
+   "reason": ""
+  },
+  {
+   "name": "timing",
+   "passed": true,
+   "value": 60.0,
+   "threshold": "read at >= 60.0 s",
+   "reason": ""
+  },
+  {
+   "name": "drift",
+   "passed": true,
+   "value": 0.8803467805314024,
+   "threshold": "pad drift <= 3.0 dE00",
+   "reason": ""
+  },
+  {
+   "name": "reference",
+   "passed": true,
+   "value": 5.767446922165821,
+   "threshold": "grey patch chroma after correction <= 10.6",
+   "reason": ""
+  },
+  {
+   "name": "strip_present",
+   "passed": true,
+   "value": 10.970028585456907,
+   "threshold": "dE00 vs empty tray >= 3.0 or abs diff >= 4.3",
+   "reason": ""
+  }
+ ],
+ "quality_ok": true,
+ "metrics": {
+  "black_L_series": [
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01,
+   20.01
+  ],
+  "black_jump_max": 0.0,
+  "latency_max_s": 0.0883333683013916,
+  "n_errors": 0,
+  "n_retries": 0,
+  "retries": [],
+  "black_L_max": 20.012188060473207,
+  "white_L_mean": 79.78880000000001,
+  "white_clip_max": 0.0,
+  "glare_max": 0.0,
+  "sharpness_min": 111.52810300604237,
+  "grey_chroma_max": 5.767446922165821,
+  "drift_dE": 0.8803467805314024,
+  "strip_dE": 10.970028585456907,
+  "strip_absdiff": 8.0
+ },
+ "features": {
+  "pad_L": 92.8848,
+  "pad_a": 3.3212,
+  "pad_b": 13.1434,
+  "pad_C": 13.556523632554182,
+  "pad_h": 75.81881271009532,
+  "n_frames": 5,
+  "nitrite_L": 95.353,
+  "nitrite_a": 1.5298,
+  "nitrite_b": 8.1584,
+  "nitrite_C": 8.300589051386655,
+  "nitrite_h": 79.37966628490801
+ },
+ "prediction": {
+  "est": 54.990000000000016,
+  "distance": 0.44656882981176244,
+  "segment": [
+   45.03,
+   54.99
+  ],
+  "t": 1.0,
+  "nearest_point_lab": [
+   92.373,
+   3.433,
+   13.641
+  ],
+  "reference": {
+   "method": "centroid",
+   "est": 52.866665803177625,
+   "distance": 0.44656882981176244,
+   "rejected": false
+  }
+ },
+ "verdict": {
+  "command": "HOLD",
+  "reasons": [
+   "estimated 55 mg/L NO3- >= 25 mg/L hold block"
+  ],
+  "est_mg_L": 54.990000000000016,
+  "block_mg_L": 50.0,
+  "borderline": false,
+  "distance_dE": 0.44656882981176244,
+  "display": "HOLD: RO+UV"
+ },
+ "panel": {
+  "sent": true,
+  "reply_state": "HOLD",
+  "delivered": true
+ },
+ "monitor": [
+  {
+   "t": 1.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_000.jpg"
+  },
+  {
+   "t": 2.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 3.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 4.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 5.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 6.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_005.jpg"
+  },
+  {
+   "t": 7.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 8.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 9.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 10.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 11.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_010.jpg"
+  },
+  {
+   "t": 12.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 13.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 14.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 15.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 16.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_015.jpg"
+  },
+  {
+   "t": 17.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 18.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 19.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 20.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 21.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_020.jpg"
+  },
+  {
+   "t": 22.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 23.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 24.1,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 25.11,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 26.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_025.jpg"
+  },
+  {
+   "t": 27.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 28.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 29.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 30.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 31.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_030.jpg"
+  },
+  {
+   "t": 32.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 33.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 34.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 35.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 36.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_035.jpg"
+  },
+  {
+   "t": 37.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 38.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 39.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 40.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 41.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_040.jpg"
+  },
+  {
+   "t": 42.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 43.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 44.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 45.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 46.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_045.jpg"
+  },
+  {
+   "t": 47.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 48.08,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 49.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 50.11,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 51.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_050.jpg"
+  },
+  {
+   "t": 52.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 53.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 54.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 55.06,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 56.07,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null,
+   "file": "frames/monitor_055.jpg"
+  },
+  {
+   "t": 57.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 58.09,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  },
+  {
+   "t": 59.05,
+   "black_L": 20.012188060473207,
+   "located": true,
+   "shift": [
+    -11,
+    -1
+   ],
+   "error": null
+  }
+ ],
+ "frames": [
+  {
+   "raw_rgb": {
+    "nitrate_pad": [
+     230.0,
+     188.0,
+     163.0
+    ],
+    "nitrite_pad": [
+     230.0,
+     195.0,
+     176.0
+    ],
+    "white": [
+     217.0,
+     193.0,
+     185.0
+    ],
+    "grey": [
+     72.0,
+     73.0,
+     67.0
+    ],
+    "black": [
+     56.0,
+     46.0,
+     46.0
+    ]
+   },
+   "raw_lab": {
+    "nitrate_pad": [
+     79.292,
+     11.468,
+     18.329
+    ],
+    "nitrite_pad": [
+     81.286,
+     9.546,
+     14.166
+    ],
+    "white": [
+     79.839,
+     7.169,
+     7.123
+    ],
+    "grey": [
+     30.755,
+     -1.695,
+     3.448
+    ],
+    "black": [
+     20.012,
+     4.544,
+     1.694
+    ]
+   },
+   "corr_lab": {
+    "nitrate_pad": [
+     92.826,
+     3.443,
+     13.06
+    ],
+    "nitrite_pad": [
+     95.292,
+     1.655,
+     8.071
+    ],
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     37.829,
+     -5.434,
+     0.331
+    ],
+    "black": [
+     25.23,
+     2.076,
+     -1.298
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.2250102215102385,
+     1.59392013898904,
+     1.7520356694298729
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 119.96205732489116,
+   "grey_chroma": 5.44407172987278,
+   "file": "frames/read_0.jpg",
+   "elapsed_s": 60.0,
+   "latency_s": 0.045,
+   "located_ok": true,
+   "locate_reason": "",
+   "patch_shift": [
+    -11,
+    -1
+   ],
+   "strip_shift": [
+    -3,
+    33
+   ],
+   "patch_score": 0.948,
+   "strip_score": 0.942,
+   "regions_used": {
+    "nitrate_pad": [
+     140,
+     267,
+     78,
+     80
+    ],
+    "nitrite_pad": [
+     288,
+     267,
+     74,
+     80
+    ],
+    "anchor": [
+     50,
+     227,
+     76,
+     160
+    ],
+    "white": [
+     867,
+     587,
+     95,
+     150
+    ],
+    "grey": [
+     702,
+     622,
+     130,
+     110
+    ],
+    "black": [
+     1177,
+     612,
+     190,
+     85
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "nitrate_pad": [
+     230.0,
+     188.0,
+     163.0
+    ],
+    "nitrite_pad": [
+     230.0,
+     195.0,
+     176.0
+    ],
+    "white": [
+     217.0,
+     193.0,
+     185.0
+    ],
+    "grey": [
+     72.0,
+     73.0,
+     67.0
+    ],
+    "black": [
+     56.0,
+     46.0,
+     46.0
+    ]
+   },
+   "raw_lab": {
+    "nitrate_pad": [
+     79.292,
+     11.468,
+     18.329
+    ],
+    "nitrite_pad": [
+     81.286,
+     9.546,
+     14.166
+    ],
+    "white": [
+     79.839,
+     7.169,
+     7.123
+    ],
+    "grey": [
+     30.755,
+     -1.695,
+     3.448
+    ],
+    "black": [
+     20.012,
+     4.544,
+     1.694
+    ]
+   },
+   "corr_lab": {
+    "nitrate_pad": [
+     92.826,
+     3.443,
+     13.06
+    ],
+    "nitrite_pad": [
+     95.292,
+     1.655,
+     8.071
+    ],
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     37.829,
+     -5.434,
+     0.331
+    ],
+    "black": [
+     25.23,
+     2.076,
+     -1.298
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.2250102215102385,
+     1.59392013898904,
+     1.7520356694298729
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 118.56165676489539,
+   "grey_chroma": 5.44407172987278,
+   "file": "frames/read_1.jpg",
+   "elapsed_s": 61.5,
+   "latency_s": 0.031,
+   "located_ok": true,
+   "locate_reason": "",
+   "patch_shift": [
+    -11,
+    -1
+   ],
+   "strip_shift": [
+    -3,
+    33
+   ],
+   "patch_score": 0.948,
+   "strip_score": 0.942,
+   "regions_used": {
+    "nitrate_pad": [
+     140,
+     267,
+     78,
+     80
+    ],
+    "nitrite_pad": [
+     288,
+     267,
+     74,
+     80
+    ],
+    "anchor": [
+     50,
+     227,
+     76,
+     160
+    ],
+    "white": [
+     867,
+     587,
+     95,
+     150
+    ],
+    "grey": [
+     702,
+     622,
+     130,
+     110
+    ],
+    "black": [
+     1177,
+     612,
+     190,
+     85
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "nitrate_pad": [
+     230.0,
+     188.0,
+     163.0
+    ],
+    "nitrite_pad": [
+     230.0,
+     195.0,
+     176.0
+    ],
+    "white": [
+     217.0,
+     193.0,
+     185.0
+    ],
+    "grey": [
+     72.0,
+     73.0,
+     67.0
+    ],
+    "black": [
+     56.0,
+     46.0,
+     46.0
+    ]
+   },
+   "raw_lab": {
+    "nitrate_pad": [
+     79.292,
+     11.468,
+     18.329
+    ],
+    "nitrite_pad": [
+     81.286,
+     9.546,
+     14.166
+    ],
+    "white": [
+     79.839,
+     7.169,
+     7.123
+    ],
+    "grey": [
+     30.755,
+     -1.695,
+     3.448
+    ],
+    "black": [
+     20.012,
+     4.544,
+     1.694
+    ]
+   },
+   "corr_lab": {
+    "nitrate_pad": [
+     92.826,
+     3.443,
+     13.06
+    ],
+    "nitrite_pad": [
+     95.292,
+     1.655,
+     8.071
+    ],
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     37.829,
+     -5.434,
+     0.331
+    ],
+    "black": [
+     25.23,
+     2.076,
+     -1.298
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.2250102215102385,
+     1.59392013898904,
+     1.7520356694298729
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 122.47627797078643,
+   "grey_chroma": 5.44407172987278,
+   "file": "frames/read_2.jpg",
+   "elapsed_s": 63.0,
+   "latency_s": 0.035,
+   "located_ok": true,
+   "locate_reason": "",
+   "patch_shift": [
+    -11,
+    -1
+   ],
+   "strip_shift": [
+    -3,
+    33
+   ],
+   "patch_score": 0.948,
+   "strip_score": 0.943,
+   "regions_used": {
+    "nitrate_pad": [
+     140,
+     267,
+     78,
+     80
+    ],
+    "nitrite_pad": [
+     288,
+     267,
+     74,
+     80
+    ],
+    "anchor": [
+     50,
+     227,
+     76,
+     160
+    ],
+    "white": [
+     867,
+     587,
+     95,
+     150
+    ],
+    "grey": [
+     702,
+     622,
+     130,
+     110
+    ],
+    "black": [
+     1177,
+     612,
+     190,
+     85
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "nitrate_pad": [
+     230.0,
+     188.0,
+     163.0
+    ],
+    "nitrite_pad": [
+     230.0,
+     195.0,
+     176.0
+    ],
+    "white": [
+     217.0,
+     192.0,
+     185.0
+    ],
+    "grey": [
+     72.0,
+     73.0,
+     67.0
+    ],
+    "black": [
+     56.0,
+     46.0,
+     46.0
+    ]
+   },
+   "raw_lab": {
+    "nitrate_pad": [
+     79.292,
+     11.468,
+     18.329
+    ],
+    "nitrite_pad": [
+     81.286,
+     9.546,
+     14.166
+    ],
+    "white": [
+     79.588,
+     7.7,
+     6.763
+    ],
+    "grey": [
+     30.755,
+     -1.695,
+     3.448
+    ],
+    "black": [
+     20.012,
+     4.544,
+     1.694
+    ]
+   },
+   "corr_lab": {
+    "nitrate_pad": [
+     93.12,
+     2.834,
+     13.477
+    ],
+    "nitrite_pad": [
+     95.597,
+     1.029,
+     8.508
+    ],
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     37.988,
+     -5.74,
+     0.562
+    ],
+    "black": [
+     25.341,
+     1.843,
+     -1.134
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.2250102215102385,
+     1.61255095622961,
+     1.7520356694298729
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 111.52810300604237,
+   "grey_chroma": 5.767446922165821,
+   "file": "frames/read_3.jpg",
+   "elapsed_s": 64.501,
+   "latency_s": 0.035,
+   "located_ok": true,
+   "locate_reason": "",
+   "patch_shift": [
+    -11,
+    -1
+   ],
+   "strip_shift": [
+    -3,
+    33
+   ],
+   "patch_score": 0.949,
+   "strip_score": 0.942,
+   "regions_used": {
+    "nitrate_pad": [
+     140,
+     267,
+     78,
+     80
+    ],
+    "nitrite_pad": [
+     288,
+     267,
+     74,
+     80
+    ],
+    "anchor": [
+     50,
+     227,
+     76,
+     160
+    ],
+    "white": [
+     867,
+     587,
+     95,
+     150
+    ],
+    "grey": [
+     702,
+     622,
+     130,
+     110
+    ],
+    "black": [
+     1177,
+     612,
+     190,
+     85
+    ]
+   }
+  },
+  {
+   "raw_rgb": {
+    "nitrate_pad": [
+     230.0,
+     188.0,
+     163.0
+    ],
+    "nitrite_pad": [
+     230.0,
+     195.0,
+     176.0
+    ],
+    "white": [
+     217.0,
+     193.0,
+     185.0
+    ],
+    "grey": [
+     72.0,
+     73.0,
+     67.0
+    ],
+    "black": [
+     56.0,
+     46.0,
+     46.0
+    ]
+   },
+   "raw_lab": {
+    "nitrate_pad": [
+     79.292,
+     11.468,
+     18.329
+    ],
+    "nitrite_pad": [
+     81.286,
+     9.546,
+     14.166
+    ],
+    "white": [
+     79.839,
+     7.169,
+     7.123
+    ],
+    "grey": [
+     30.755,
+     -1.695,
+     3.448
+    ],
+    "black": [
+     20.012,
+     4.544,
+     1.694
+    ]
+   },
+   "corr_lab": {
+    "nitrate_pad": [
+     92.826,
+     3.443,
+     13.06
+    ],
+    "nitrite_pad": [
+     95.292,
+     1.655,
+     8.071
+    ],
+    "white": [
+     93.883,
+     -0.0,
+     0.0
+    ],
+    "grey": [
+     37.829,
+     -5.434,
+     0.331
+    ],
+    "black": [
+     25.23,
+     2.076,
+     -1.298
+    ]
+   },
+   "correction": {
+    "method": "white_gain",
+    "gain": [
+     1.2250102215102385,
+     1.59392013898904,
+     1.7520356694298729
+    ],
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "reason": "white gain only (config correction_mode)"
+   },
+   "white_clip_frac": 0.0,
+   "glare_level_used": 240.0,
+   "pad_glare_frac": 0.0,
+   "sharpness": 113.30390150948121,
+   "grey_chroma": 5.44407172987278,
+   "file": "frames/read_4.jpg",
+   "elapsed_s": 66.001,
+   "latency_s": 0.03,
+   "located_ok": true,
+   "locate_reason": "",
+   "patch_shift": [
+    -11,
+    -1
+   ],
+   "strip_shift": [
+    -3,
+    33
+   ],
+   "patch_score": 0.949,
+   "strip_score": 0.942,
+   "regions_used": {
+    "nitrate_pad": [
+     140,
+     267,
+     78,
+     80
+    ],
+    "nitrite_pad": [
+     288,
+     267,
+     74,
+     80
+    ],
+    "anchor": [
+     50,
+     227,
+     76,
+     160
+    ],
+    "white": [
+     867,
+     587,
+     95,
+     150
+    ],
+    "grey": [
+     702,
+     622,
+     130,
+     110
+    ],
+    "black": [
+     1177,
+     612,
+     190,
+     85
+    ]
+   }
+  }
+ ],
+ "errors": []
+}

@@ -42,3 +42,15 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
    Autofocus settles at sharpness ≈ 270–280 in this position, so `lock_camera.py --refresh-focus-ref` was run (280.3; camera settings hash
    unchanged 231eb85694496d11). ROI, camera settings and thresholds are unchanged, so the frozen model still matches, but **the physical
    geometry differs slightly from training** (≈3° rotation, a little residual haze); blind results must be read with this caveat.
+10. **Blind test session `20261122_1746_test`** (17:46–18:42, closed + INTACT). Model frozen 15:01 matched (checklist "Model frozen" green).
+    START on the operator's chat reply for every read. The team said cups B01–B07 were spiked and B08 onwards clean (type known to the
+    operator, values only on the chemistry person's paper until the session was locked). Reads (verdict actually sent to the panel):
+    - B01: UNKNOWN (seated, strip 60 px along its length), UNKNOWN (blur 53.5), UNKNOWN (blur 45.6), then HOLD (B01_r4; strip position and
+      pad colour identical to B01_r3, so most likely the same strip read ~5 min after its dip).
+    - B02–B07: HOLD ×6, all checks passed.
+    - B08: UNKNOWN (blur 53.8), UNKNOWN (blur 52.2; position ≈ identical, possibly the same strip), then HOLD (B08_r3, sharpness 102, black L* 20.0).
+      The team asked to count a blur-failed read as valid; declined (frozen gate, no post-hoc overrides). A labelled post-hoc analysis of the
+      refused reads may be added after scoring, never replacing the primary result.
+    - B09, B10: HOLD, all checks passed.
+    Between 17:55 and 18:33 image sharpness hovered at the frozen blur limit (54.5) after the post-freeze phone disturbance (item 9); from 18:35
+    it returned to training level (≈100, black L* 20). The blind test stopped at B10 to keep 2 strips for the demo.
