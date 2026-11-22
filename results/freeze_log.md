@@ -1,0 +1,1 @@
+- 2026-11-22 15:01:13: froze model_20261122_150113.json sha256 29933a5c798f5bf47bb7c150e590f73543d2af051ebde2163f08300ff95a0c42 (primary curve, reject dE00 2.73, band from 4.5 mg/L, 8 training reads)
