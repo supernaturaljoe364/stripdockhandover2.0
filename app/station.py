@@ -25,7 +25,8 @@ FROZEN_MODES = ("test", "degraded", "demo")
 def roi_locate_params(cfg: dict) -> dict:
     """ROI re-location settings that decide 'strip not seated' (frozen into the model, D-43)."""
     r = cfg.get("roi", {})
-    return {k: r.get(k) for k in ("shrink_frac", "shift_tol_px", "search_px", "min_match_score")}
+    return {k: r.get(k) for k in ("shrink_frac", "shift_tol_px", "search_px", "min_match_score",
+                                  "strip_tol_px", "strip_min_score")}
 
 
 def frozen_mismatches(md: dict, cfg: dict, roi_hash_now, camera_hash_now) -> list[str]:

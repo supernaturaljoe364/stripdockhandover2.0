@@ -15,7 +15,7 @@ from .chart import nearest_block
 from .colour import delta_e2000, rgb8_to_lab
 from .decision import UNKNOWN, decide
 from .features import capture_features, measure_frame, region_pixels
-from .roi import crop, locate, shrink
+from .roi import crop, locate_cfg, shrink
 from .session import sample_dir
 
 
@@ -90,9 +90,6 @@ class ReadJob:
         cam = st.read_cam
         roi = st.roi
         ref = st.ref_frame
-        tol = int(cfg["roi"]["shift_tol_px"])
-        search = int(cfg["roi"]["search_px"])
-        min_score = float(cfg["roi"]["min_match_score"])
 
         errors, latencies, black_L, monitor, retries = [], [], [], [], []
         located_ok, locate_reasons = [], []
@@ -122,7 +119,7 @@ class ReadJob:
                 errors.append(f"{tag}: {last_err}")
                 return None, None
             latencies.append(fr.latency)
-            loc = locate(roi, ref, fr.bgr, tol, search, min_score)
+            loc = locate_cfg(roi, ref, fr.bgr, cfg["roi"])
             located_ok.append(loc.ok)
             locate_reasons.append(loc.reason)
             bpx = region_pixels(fr.bgr, shrink(loc.regions["black"], cfg["roi"]["shrink_frac"]))
@@ -232,7 +229,8 @@ class ReadJob:
             "lighting_mode": cfg["lighting_mode"],
             "camera_settings_hash": st.camera_hash, "roi_hash": st.roi_hash,
             "quality_thresholds": q, "roi_locate": {k: cfg["roi"].get(k) for k in
-                                                    ("shrink_frac", "shift_tol_px", "search_px", "min_match_score")},
+                                                    ("shrink_frac", "shift_tol_px", "search_px", "min_match_score",
+                                                     "strip_tol_px", "strip_min_score")},
             "model": None if model is None else {"file": model.path.name if model.path else None,
                                                  "sha256": model.sha, "frozen": model.frozen,
                                                  "primary": model.primary},

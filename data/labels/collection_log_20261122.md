@@ -13,3 +13,9 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
    plan. Labels = volume-corrected actual concentrations from the volumes the team reports. Limitation: concentration is
    confounded with time within each series (as on 20 Nov, D-40); two independent series partly mitigate it.
    Recipes: `PROCEDURE_20261122.md`.
+3. **Dry session `20261122_1252_dry` (open):** D1 (12:52) at the new reference: all quality checks pass (seated (0,0), strip dE 13.4,
+   glare 0, drift 0, black L* 21.5); UNKNOWN only because no model exists. E1–E3 (12:55–12:58) empty → UNKNOWN (no strip; dE 1.06/0.26/0.26).
+   W1 (distilled): dipped ~13:33; auto-START at 13:38 was **blocked** by a transient "focus lost" camera check (a frame taken while
+   the tray was still moving; `lock_camera.py --check` passed 1 min later). Read at 13:39 **late (~6 min after the dip)**, noted in
+   meta.json. Only `seated` failed (strip 39 px > 25). Pad (94.4, −3.3, 16.3) ≈ dry D1 (95.5, −4.1, 14.8): dry and 0 mg/L look alike (D-30 stands).
+4. **D-44** (13:45): tolerance changed to tray 30 px / strip 40 px with tip match ≥ 0.75, before any training read.

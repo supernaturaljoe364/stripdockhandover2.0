@@ -124,6 +124,22 @@ def test_seated(cfg, ref):
     assert Q.check_seated([True, True], ["", ""]).passed
 
 
+def test_strip_tolerance_wider_with_strong_match(ref):
+    """D-39/D-44: the strip tip may sit up to strip_tol px off if it is matched strongly;
+    the patch row keeps the normal tolerance."""
+    f = render(25, seed=2, strip_shift=(0, 35))
+    assert not locate(roi_dict(), ref, f, tol=30, search=60).ok                 # original rule: 35 > 30
+    loc = locate(roi_dict(), ref, f, tol=30, search=60, strip_tol=40)
+    assert loc.ok and loc.strip_shift == (0, 35) and loc.strip_score >= 0.75
+    assert loc.regions["nitrate_pad"][1] == REGIONS["nitrate_pad"][1] + 35   # pad follows the strip
+    weak = locate(roi_dict(), ref, f, tol=30, search=60, strip_tol=40, strip_min_score=1.01)
+    assert not weak.ok and "weak tip match" in weak.reason
+    far = locate(roi_dict(), ref, render(25, seed=2, strip_shift=(0, 48)), tol=30, search=60, strip_tol=40)
+    assert not far.ok and "strip moved 48 px (> 40)" in far.reason
+    tray = locate(roi_dict(), ref, render(25, seed=2, shift=(0, 35)), tol=30, search=60, strip_tol=40)
+    assert not tray.ok and "camera/dock moved" in tray.reason                   # patches stay at tol
+
+
 def test_reference_inconsistent(cfg):
     assert not Q.check_reference(12.0, cfg["quality"]).passed
     assert Q.check_reference(1.0, cfg["quality"]).passed

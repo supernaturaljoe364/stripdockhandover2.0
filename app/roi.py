@@ -112,7 +112,10 @@ def _match(ref_gray, cur_gray, rect, search):
 
 
 def locate(roi: dict, ref_bgr: np.ndarray, cur_bgr: np.ndarray, tol: int = 15, search: int = 30,
-           min_score: float = 0.6) -> Located:
+           min_score: float = 0.6, strip_tol: int | None = None, strip_min_score: float = 0.75) -> Located:
+    """Re-locate the regions. Patch row (tray/camera) must move <= tol. The strip tip (anchor) may
+    move <= tol with score >= min_score, or up to strip_tol when its match is strong
+    (score >= strip_min_score), D-39/D-44. strip_tol None = same as tol (original behaviour)."""
     regs = roi["regions"]
     ref_g = cv2.cvtColor(ref_bgr, cv2.COLOR_BGR2GRAY)
     cur_g = cv2.cvtColor(cur_bgr, cv2.COLOR_BGR2GRAY)
@@ -130,11 +133,22 @@ def locate(roi: dict, ref_bgr: np.ndarray, cur_bgr: np.ndarray, tol: int = 15, s
         reasons.append(f"camera/dock moved {max(abs(pdx), abs(pdy))} px (> {tol}); strip not seated")
     if "anchor" in regs:
         sdx, sdy, sscore = _match(ref_g, cur_g, regs["anchor"], search)
+        smax = max(abs(sdx), abs(sdy))
+        wide = tol if strip_tol is None else max(tol, int(strip_tol))
         if sscore < min_score:
             reasons.append(f"strip anchor not found (match {sscore:.2f}); strip not seated")
-        elif max(abs(sdx), abs(sdy)) > tol:
-            reasons.append(f"strip moved {max(abs(sdx), abs(sdy))} px (> {tol}); strip not seated")
+        elif smax > wide:
+            reasons.append(f"strip moved {smax} px (> {wide}); strip not seated")
+        elif smax > tol and sscore < strip_min_score:
+            reasons.append(f"strip moved {smax} px (> {tol}) with a weak tip match "
+                           f"({sscore:.2f} < {strip_min_score}); strip not seated")
         for k in ("nitrate_pad", "nitrite_pad", "anchor"):
             if k in regs:
                 out[k] = offset(regs[k], sdx, sdy)
     return Located(not reasons, out, (pdx, pdy), (sdx, sdy), pscore, sscore, "; ".join(reasons))
+
+
+def locate_cfg(roi: dict, ref_bgr: np.ndarray, cur_bgr: np.ndarray, rc: dict) -> Located:
+    """locate() with the tolerances from config.yaml's `roi:` section."""
+    return locate(roi, ref_bgr, cur_bgr, int(rc["shift_tol_px"]), int(rc["search_px"]),
+                  float(rc["min_match_score"]), rc.get("strip_tol_px"), float(rc.get("strip_min_score", 0.75)))

@@ -146,7 +146,9 @@ def test_no_strip(fast_cfg, model, tmp_path):
 
 
 def test_phone_moved(fast_cfg, model, tmp_path):
-    r, _ = run(fast_cfg, model, lambda t: {"conc": 0, "shift": (25, 0)}, tmp_path)
+    move = int(fast_cfg["roi"]["shift_tol_px"]) + 10          # beyond the configured tolerance (D-44)
+    assert move < int(fast_cfg["roi"]["search_px"])
+    r, _ = run(fast_cfg, model, lambda t: {"conc": 0, "shift": (move, 0)}, tmp_path)
     assert r["verdict"]["command"] == "UNKNOWN"
     assert any("not seated" in x for x in r["verdict"]["reasons"])
 

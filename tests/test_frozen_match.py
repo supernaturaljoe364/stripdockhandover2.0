@@ -22,7 +22,8 @@ def test_each_change_is_reported():
     assert any("ROI changed" in p for p in frozen_mismatches(md, cfg, "r2", "c1"))
     assert any("camera" in p for p in frozen_mismatches(md, cfg, "r1", "c2"))
     for key, val in [(("quality", "black_L_max"), 99.0), (("roi", "shift_tol_px"), 40),
-                     (("roi", "search_px"), 80), (("roi", "min_match_score"), 0.3)]:
+                     (("roi", "search_px"), 80), (("roi", "min_match_score"), 0.3),
+                     (("roi", "strip_tol_px"), 90), (("roi", "strip_min_score"), 0.5)]:
         c2 = copy.deepcopy(cfg)
         c2[key[0]][key[1]] = val
         probs = frozen_mismatches(md, c2, "r1", "c1")

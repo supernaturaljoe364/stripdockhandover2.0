@@ -31,7 +31,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 from app.config import load_config, phone_base, rpath  # noqa: E402
-from app.roi import load_roi, locate  # noqa: E402
+from app.roi import load_roi, locate_cfg  # noqa: E402
 import guided_read  # noqa: E402
 
 
@@ -55,7 +55,7 @@ def wait_for_strip(cfg, timeout: float, settle: float, need_away: bool = True) -
         try:
             b = requests.get(url, timeout=3).content
             img = cv2.imdecode(np.frombuffer(b, np.uint8), 1)
-            loc = locate(roi, ref, img, rc["shift_tol_px"], rc["search_px"], rc["min_match_score"])
+            loc = locate_cfg(roi, ref, img, rc)
         except Exception as e:  # phone hiccup: keep waiting
             print("  (frame failed:", e, ")", flush=True)
             time.sleep(0.5)
@@ -78,6 +78,37 @@ def wait_for_strip(cfg, timeout: float, settle: float, need_away: bool = True) -
     raise SystemExit("timeout: no strip arrived")
 
 
+def wait_for_empty(cfg, timeout: float, settle: float) -> dict:
+    """Wait until the tray is in (patches found) with NO strip (tip not found), still for `settle` s."""
+    roi = load_roi(rpath(cfg["roi_file"]))
+    ref = cv2.imread(str(ROOT / roi["reference_frame"]))
+    rc = cfg["roi"]
+    url = phone_base(cfg) + cfg.get("frame_endpoint", "/shot.jpg")
+    t_end = time.time() + timeout
+    since, last = None, None
+    print("Waiting for an EMPTY tray (strip out, tray fully in) ...", flush=True)
+    while time.time() < t_end:
+        try:
+            b = requests.get(url, timeout=3).content
+            img = cv2.imdecode(np.frombuffer(b, np.uint8), 1)
+            loc = locate_cfg(roi, ref, img, rc)
+        except Exception:
+            time.sleep(0.5)
+            continue
+        empty = loc.patch_score >= rc["min_match_score"] and not strip_seen(loc, rc["min_match_score"])
+        if empty:
+            if last is not None and all(abs(a - b) <= 2 for a, b in zip(loc.patch_shift, last)):
+                if time.time() - since >= settle:
+                    return {"patch_shift": loc.patch_shift, "patch_score": round(loc.patch_score, 3)}
+            else:
+                since = time.time()
+            last = tuple(loc.patch_shift)
+        else:
+            last = None
+        time.sleep(0.25)
+    raise SystemExit("timeout: tray never empty")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("sample_id")
@@ -85,6 +116,7 @@ def main():
     ap.add_argument("--note", default="")
     ap.add_argument("--degradation", default="")
     ap.add_argument("--now", action="store_true", help="start immediately (empty-tray reads)")
+    ap.add_argument("--wait-empty", action="store_true", help="start when the tray is in with no strip")
     ap.add_argument("--no-away", action="store_true", help="do not require seeing the tray without a strip first")
     ap.add_argument("--settle", type=float, default=1.0)
     ap.add_argument("--timeout", type=float, default=900)
@@ -95,7 +127,10 @@ def main():
     if s.get("session") is None:
         print("No session open in the app.")
         return 1
-    if not a.now:
+    if a.wait_empty:
+        info = wait_for_empty(cfg, a.timeout, 3.0)
+        print(f"Empty tray {time.strftime('%H:%M:%S')}: {info}", flush=True)
+    elif not a.now:
         info = wait_for_strip(cfg, a.timeout, a.settle, need_away=not a.no_away)
         print(f"Strip in place {time.strftime('%H:%M:%S')}: {info}", flush=True)
     r = guided_read.call("/api/read/start", {"sample_id": a.sample_id, "concentration": a.conc, "note": a.note,

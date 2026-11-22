@@ -13,7 +13,7 @@ from flask import Flask, Response, jsonify, render_template, request
 from .config import ROOT, rpath
 from .decision import DISPLAY
 from .readflow import ReadJob
-from .roi import REQUIRED, OPTIONAL, locate, save_roi, shrink
+from .roi import REQUIRED, OPTIONAL, locate_cfg, save_roi, shrink
 from .session import DEGRADATIONS, PURPOSES, close_session
 
 COLOURS = {"nitrate_pad": (255, 0, 255), "nitrite_pad": (255, 160, 0), "white": (255, 255, 255),
@@ -78,8 +78,7 @@ def create_app(station):
         else:
             img = fr.bgr.copy()
             if st.roi and st.ref_frame is not None and st.ref_frame.shape == img.shape:
-                loc = locate(st.roi, st.ref_frame, img, int(st.cfg["roi"]["shift_tol_px"]),
-                             int(st.cfg["roi"]["search_px"]), float(st.cfg["roi"]["min_match_score"]))
+                loc = locate_cfg(st.roi, st.ref_frame, img, st.cfg["roi"])
                 for name, r in loc.regions.items():
                     c = COLOURS.get(name, (0, 255, 0))[::-1]
                     x, y, w, h = r
