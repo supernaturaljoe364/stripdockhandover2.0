@@ -1,0 +1,16 @@
+{
+ "time": "2026-11-20 10:49:57",
+ "settings_match": true,
+ "problems": [],
+ "stability_region": "white patch (roi.json)",
+ "dE00_mean": 0.36620286954238757,
+ "dE00_max": 0.5452930840742316,
+ "Lab_mean": [
+  81.46,
+  8.94,
+  6.15
+ ],
+ "pass": true,
+ "settings_file": "C:\\stripdock_r3\\data\\calib\\camera_settings.json",
+ "settings_hash": "231eb85694496d11"
+}

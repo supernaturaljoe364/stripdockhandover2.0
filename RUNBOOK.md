@@ -42,7 +42,7 @@ Commands are typed into **PowerShell**, opened in the folder `C:\stripdock_r3` (
 
 ## 2. Lock the camera (only once, or when the phone, patches or lighting change)
 
-The camera is **already locked** (re-locked 2026-11-20 10:43, settings hash `231eb85694496d11`). Don't redo this after training has started, because the model belongs to these settings.
+The camera is **already locked** (re-locked 2026-11-22 12:11 on the new laptop, settings hash `231eb85694496d11`, the same settings as 20 Nov). Don't redo this after training has started, because the model belongs to these settings.
 
 If it must be redone (before any training):
 1. Strip in the tray, drawer closed, phone in place.
@@ -66,7 +66,7 @@ To check at any time: `.venv\Scripts\python tools\lock_camera.py --check`.
 
 Do this **only** when the tray, phone, patches or lid have moved. **After training starts, never**, because a new ROI invalidates the model (the app will refuse test mode).
 
-The regions are calibrated for the layout of 2026-11-20 11:05 (ROI hash `ef3c1dd3e11afbd8`). **If the box or phone has moved since (e.g. after transport), recalibrate.**
+The regions are calibrated for the layout of 2026-11-22 12:10 (ROI hash `01396f4470cc9a85`, new laptop). **If the box or phone has moved since (e.g. after transport), recalibrate.**
 
 ![Regions](docs/screenshots/roi_layout_20261120_final.jpg)
 

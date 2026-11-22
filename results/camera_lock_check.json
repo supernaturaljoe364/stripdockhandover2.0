@@ -1,14 +1,14 @@
 {
- "time": "2026-11-20 10:49:57",
+ "time": "2026-11-22 12:11:44",
  "settings_match": true,
  "problems": [],
  "stability_region": "white patch (roi.json)",
- "dE00_mean": 0.36620286954238757,
- "dE00_max": 0.5452930840742316,
+ "dE00_mean": 1.309076156144687e-15,
+ "dE00_max": 1.309076156144687e-15,
  "Lab_mean": [
-  81.46,
-  8.94,
-  6.15
+  78.95,
+  9.82,
+  5.32
  ],
  "pass": true,
  "settings_file": "C:\\stripdock_r3\\data\\calib\\camera_settings.json",
