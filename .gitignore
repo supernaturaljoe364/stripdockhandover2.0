@@ -5,3 +5,5 @@ __pycache__/
 tests/synthetic/_e2e/
 # originals of the bottle photos (copies are in data/chart/)
 WhatsApp Image *.jpeg
+# adb.exe unpacked locally from Google's platform-tools zip (not committed)
+.platform-tools/

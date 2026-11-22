@@ -1,0 +1,11 @@
+# Installed and tested 2026-11-22 on the new laptop: Python 3.11.6, Windows 11 (89 tests passed).
+# Install: .venv\Scripts\python -m pip install -r requirements.txt
+opencv-python==5.1.0.95
+numpy==2.4.6
+pyserial==3.5
+requests==2.34.2
+Flask==3.1.3
+PyYAML==6.0.4
+pandas==3.1.1
+matplotlib==3.11.2
+pytest==9.2.0

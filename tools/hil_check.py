@@ -9,7 +9,7 @@ Steps:
  1. PING keeps Link OK (operator confirms the OLED).
  2. UNKNOWN while on HOLD -> stays HOLD.
  3. PASS while on HOLD -> CONFIRM_WAIT; operator presses CONFIRM -> ADAPTIVE mirrored.
- 4. Phone off Wi-Fi mid-read -> UNKNOWN.
+ 4. Phone link lost mid-read (USB cable unplugged, or IP Webcam server stopped) -> UNKNOWN.
  5. Drawer opened mid-read -> light-leak fail -> UNKNOWN.
  6. Dry, undipped strip read -> record what happens.
 Results are appended to results\\hil_log.md with times.
@@ -130,14 +130,16 @@ def main():
             link.send("HOLD")
         if 4 in a.steps:
             input("\nStep 4: put a strip in the tray, close the drawer, press ENTER. "
-                  "When the countdown passes ~10 s, turn the phone's Wi-Fi OFF.")
-            r = run_read(st, "phone_wifi_off")
+                  "When the countdown passes ~10 s, UNPLUG the phone's USB cable "
+                  "(or stop IP Webcam's server). Leave it out until the verdict shows.")
+            r = run_read(st, "phone_link_lost")
             v = r["verdict"]
             ok = v["command"] == "UNKNOWN" and any("phone" in x or "frame" in x for x in v["reasons"])
-            log("4 phone off Wi-Fi mid-read", "PASS" if ok else "FAIL",
+            log("4 phone link lost mid-read (USB cable pulled / server stopped)", "PASS" if ok else "FAIL",
                 f"verdict {v['command']}; reasons {v['reasons'][:2]}; panel {r.get('panel_reply')} "
                 f"(read_time {cfg['read_time_s']} s)")
-            input("  Turn the phone's Wi-Fi back on, wait for IP Webcam to reconnect, press ENTER.")
+            input("  Plug the phone's USB cable back in (if IP Webcam's server was stopped instead: "
+                  "Start server, then run tools\\lock_camera.py). Wait 10 s, press ENTER.")
         if 5 in a.steps:
             input("\nStep 5: strip in, drawer closed, press ENTER. At ~10 s pull the drawer open a few cm.")
             r = run_read(st, "drawer_open")

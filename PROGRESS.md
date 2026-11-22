@@ -145,3 +145,18 @@ None needed.
 - New: `tools/guided_read.py`, `app/adbfwd.py`, `firmware/` reference copy, `HANDOVER.md`.
 - Tests: 89 passed (full run 2026-11-20, before the handover commit).
 - **Not done:** dry runs / thresholds, HIL 4–6, real training set, model, blind tests, evaluation.
+
+---
+
+## Day 4 (2026-11-22): migration to new PC
+
+- **11:20 Environment:** Windows 11 Home Single Language 10.0.26300, x64. C: 47.6 GB free. Python **3.11.6** (was 3.14.3 on the old PC, D-28; ≥ 3.11 is all the code needs). Git 2.51.0. Claude Code runs elevated (High integrity); the read-only tests still pass, because Windows honours the read-only attribute for administrators too.
+- **Venv** `.venv` created; packages pinned in `requirements.txt` (opencv-python 5.1.0.95, numpy 2.4.6, pyserial 3.5, requests 2.34.2, Flask 3.1.3, PyYAML 6.0.4, pandas 3.1.1, matplotlib 3.11.2, pytest 9.2.0).
+- **Tests:** `89 passed in 323.78s (0:05:23)`.
+- **Data survived the move:** `close_session.py --verify` → `20261120_1058_train` INTACT, `20261120_1120_train` INTACT. (`git config core.autocrlf` is `true` on this PC; `.gitattributes` `-text` on data/models/results kept the bytes.)
+- **adb:** `winget install Google.PlatformTools` hung (cdn.winget.microsoft.com timed out from this network). Instead Google's official `platform-tools_r37.0.3-win.zip` was downloaded from dl.google.com, its SHA-1 checked against Google's `repository2-1.xml` (7fea85bc…496e5a, match), and unpacked to `C:\stripdock_r3\.platform-tools\` (git-ignored). adb 1.0.41 / 37.0.3.
+- **Paths:** `config.yaml` `adb_path` → `C:/stripdock_r3/.platform-tools/platform-tools/adb.exe`, `serial_port: auto`. `start_app.bat` now reads `adb_path` from `config.yaml` (one place to edit) and uses its own folder. No other `C:\Users\Hp` in code (only historical records, left as they are).
+- **11:36 Panel:** `panel_check.py --watch 10` → auto-picked **COM7** (FTDI 0403:6001, same serial A5069RR4A; the phone's modem shows as COM9 and is correctly ignored). READY ADAPTIVE ~3 s after opening, then `OK ADAPTIVE` every 2 s; a 240 s watch ended `link_ok=True`. OLED "Link OK": awaiting operator.
+- **11:40 Phone:** after the team accepted USB debugging, `adb devices` → `RZCY820AG0F device model:SM_S921E`. `adb forward tcp:8080 tcp:8080` OK. `phone_check.py`: `/shot.jpg` 1920×1080, latency **0.048 s mean / 0.067 s max**, central dE00 0.98 mean (camera unlocked, auto settings, phone not docked). Saved as `results/phone_check_20261122_newpc.json` + `results/ipwebcam_status_20261122_newpc.json`; the 19 Nov files cited in report_numbers.md are kept unchanged.
+- **Camera lock:** `lock_camera.py --check` FAILS as expected (IP Webcam back on defaults: torch off, auto exposure/WB, quality 49). To be redone with recalibration after the physical dock fixes (HANDOVER step A/B).
+- **Stale items fixed:** report_numbers.md "Changes since Round 2" (Wi-Fi → USB adb forward, D-36; 3-point → white_gain, D-37). HIL step 4 is now "phone link lost mid-read: unplug the phone's USB cable (or stop IP Webcam's server)" in `tools/hil_check.py` (prompt, log label, reconnect instructions) and RUNBOOK. RUNBOOK COM8 → COMx, "Phone reachable" hint updated for USB.

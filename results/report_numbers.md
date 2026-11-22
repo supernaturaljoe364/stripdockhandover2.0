@@ -29,13 +29,13 @@ Each number gives its source file. Numbers marked **PENDING** do not exist yet. 
 | START-to-verdict time, median and max | `results/round3_results.md` (expected ≈ 67 s: 60 s read time + 6 s window + processing) |
 | Rejection threshold (ΔE00), borderline band (mg/L), primary method, LOSO results | `models/model_card.md`, `results/train_loso.csv` |
 | Quality thresholds as frozen | `results/threshold_suggestions.md`, frozen model JSON |
-| HIL 4–6 (phone off Wi-Fi, drawer opened, dry strip) | `results/hil_log.md` |
+| HIL 4–6 (phone link lost mid-read: USB cable pulled; drawer opened; dry strip) | `results/hil_log.md` |
 
 ## Changes since Round 2 (for the report)
 
-- **Camera:** the ESP32-CAM was replaced by an Android phone running **IP Webcam** over Wi-Fi. Exposure, white balance and focus are locked over HTTP: fixed manual exposure, a fixed white-balance preset, and single-shot autofocus, because the strip is closer than the phone's manual-focus range.
+- **Camera:** the ESP32-CAM was replaced by an Android phone running **IP Webcam**, reached over a **USB cable** (`adb forward`; Wi-Fi was tried and dropped 8 of 30 frames, DECISIONS D-36). Exposure, white balance and focus are locked over HTTP: fixed manual exposure, a fixed white-balance preset, and single-shot autofocus, because the strip is closer than the phone's manual-focus range.
 - **Lighting:** the phone torch, held constant for the whole session, never flashed per shot.
 - **Panel:** an **Arduino Nano** (`StripDockPanel.ino`) with a 0.96" SSD1306 OLED, HOLD LED, green CONFIRM LED and a physical CONFIRM button. The hold is latched in EEPROM and survives power loss. Clearing it needs a PASS plus a button press within 60 s. UNKNOWN never clears a hold. A 10 s link-lost display.
 - **Strips:** eSHa AQUA QUICK TEST **7-in-1** (NO₃⁻ chart 0/10/25/50/100/250/500 mg/L, read at 60 s, lot 7833).
 - **Standards:** made from fertiliser-grade KNO₃ (**Stanes Hugo 13-0-45, ≥94% by label**).
-- **Software:** a PC app with a quality gate (light leak, exposure, glare, blur, timing and drift, strip seated, strip present, phone fresh), 3-point reference-patch colour correction, a calibration curve trained on our own standards with unknown rejection, frozen and hash-checked models, blind test sessions locked with a SHA-256 manifest, and an evaluation with Clopper–Pearson intervals.
+- **Software:** a PC app with a quality gate (light leak, exposure, glare, blur, timing and drift, strip seated, strip present, phone fresh), colour correction by a per-channel **white-patch gain** (`white_gain`; the grey and black patches are used for checks, DECISIONS D-37), a calibration curve trained on our own standards with unknown rejection, frozen and hash-checked models, blind test sessions locked with a SHA-256 manifest, and an evaluation with Clopper–Pearson intervals.

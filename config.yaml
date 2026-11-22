@@ -6,14 +6,16 @@
 # address IP Webcam shows (was 192.168.29.229) and leave adb_path empty.
 phone_ip: 127.0.0.1
 phone_port: 8080
-adb_path: C:/Users/Hp/AppData/Local/Android/Sdk/platform-tools/adb.exe
+# adb.exe from Google's platform-tools r37.0.3 zip, unpacked inside the project (new laptop, 2026-11-22).
+# Old PC: C:/Users/Hp/AppData/Local/Android/Sdk/platform-tools/adb.exe
+adb_path: C:/stripdock_r3/.platform-tools/platform-tools/adb.exe
 # Endpoint used for read-time frames. Chosen by tools/phone_check.py (see DECISIONS.md).
 frame_endpoint: /shot.jpg
 http_timeout_s: 2.0
 # A slow (> max_frame_age_s) or failed frame request is retried this many times (D-35)
 frame_retries: 1
 
-serial_port: COM8          # "auto" = pick the single USB-serial port
+serial_port: auto          # "auto" = pick the single USB-serial port (COM7 on the new laptop, COM8 on the old PC)
 serial_baud: 115200
 ping_interval_s: 2.0
 

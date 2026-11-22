@@ -19,7 +19,7 @@ Commands are typed into **PowerShell**, opened in the folder `C:\stripdock_r3` (
 ## 1. Start of day
 
 1. Plug the panel's USB cable into the PC. Within a few seconds the panel screen shows the StripDock panel.
-2. Close the **Arduino IDE** if it is open. Its Serial Monitor blocks the panel ("COM8 is in use ... Access is denied").
+2. Close the **Arduino IDE** if it is open. Its Serial Monitor blocks the panel ("COMx is in use ... Access is denied").
 3. Connect the phone to the PC with its **USB cable** (USB debugging on; accept *Allow USB debugging* once). On the phone, open **IP Webcam** and tap **Start server**. The app reaches it over the cable (`adb forward`, `phone_ip: 127.0.0.1`), so Wi-Fi is not used (DECISIONS D-36).
 4. Lay the phone screen-up on the dock lid in its marked place, with the back camera over the hole. Don't move it after this.
 5. Re-apply the camera lock (this also turns the torch on):
@@ -34,7 +34,7 @@ Commands are typed into **PowerShell**, opened in the folder `C:\stripdock_r3` (
    The browser opens http://localhost:5000.
 7. Look at the **Startup checklist** on the right. Every line must be green before START works. If a line is red, the reason is written under it:
    - *Arduino linked*: USB cable, or the Arduino IDE is still open.
-   - *Phone reachable*: IP Webcam not running, or a different Wi-Fi.
+   - *Phone reachable*: IP Webcam not running, phone USB cable out, or USB debugging not allowed.
    - *Camera locked*: run step 5 again.
    - *ROI loaded*: the regions are not calibrated (step 3).
    - *Model frozen* (test, degraded and demo only): see step 5.
@@ -178,14 +178,14 @@ Close the app. Then:
 ```
 .venv\Scripts\python tools\hil_check.py
 ```
-Follow the prompts. Results go to `results\hil_log.md`. Steps 1–3 (panel) were done on 2026-11-19 and passed. Steps 4–6 (phone off Wi-Fi mid-read, drawer opened mid-read, dry strip) are still **pending**.
+Follow the prompts. Results go to `results\hil_log.md`. Steps 1–3 (panel) were done on 2026-11-19 and passed. Steps 4–6 are still **pending**: (4) phone link lost mid-read: **unplug the phone's USB cable** (or stop IP Webcam's server) during the countdown, expected **UNKNOWN: re-test**; (5) drawer opened mid-read, expected UNKNOWN; (6) dry, undipped strip, result recorded. Wi-Fi is no longer used (D-36), so "phone off Wi-Fi" is replaced by pulling the cable.
 
 ## 11. Troubleshooting
 
 | Problem | Fix |
 |---|---|
-| "COM8 is in use ... Access is denied" | Close the Arduino IDE (its Serial Monitor holds the port) and any other serial tool. Only one program can use the panel. |
-| Arduino not linked, USB is plugged in | Unplug and replug. Check Device Manager → Ports for "USB Serial Port (COM8)". If the number changed, set `serial_port: auto` in `config.yaml`. |
+| "COMx is in use ... Access is denied" | Close the Arduino IDE (its Serial Monitor holds the port) and any other serial tool. Only one program can use the panel. |
+| Arduino not linked, USB is plugged in | Unplug and replug. Check Device Manager → Ports for "USB Serial Port (COMx)" (COM7 on the new laptop since 2026-11-22). `config.yaml` has `serial_port: auto`, so the number does not matter. |
 | Panel shows LINK LOST | The app is not running, or was closed less than 10 s ago. Start the app. |
 | Phone unreachable | IP Webcam must be running (*Start server*); USB cable in; USB debugging allowed. Run `adb forward tcp:8080 tcp:8080` (the app also does this). On Wi-Fi instead: same network, IP matches `config.yaml`. |
 | Camera NOT locked after restarting IP Webcam | Run `tools\lock_camera.py` (no options). It re-applies the frozen settings and refocuses once. |
