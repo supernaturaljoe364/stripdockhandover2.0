@@ -46,6 +46,11 @@ def main():
     if not r.get("ok"):
         print("NOT STARTED:", r.get("error"))
         return 1
+    return wait_and_summarise(a.sample_id)
+
+
+def wait_and_summarise(sample_id):
+    """Wait for the running read to finish and print a short summary from its meta.json."""
     t0 = time.time()
     while True:
         time.sleep(2)
@@ -62,7 +67,7 @@ def main():
     fr = meta["frames"]
     mt = meta.get("metrics", {})
     f = meta.get("features") or {}
-    print(f"{a.sample_id}: {len(fr)}/5 read frames, verdict {meta['verdict']['command']}, "
+    print(f"{sample_id}: {len(fr)}/5 read frames, verdict {meta['verdict']['command']}, "
           f"start->verdict {meta['start_to_verdict_s']} s")
     print(f"  located ok: {all(x['located_ok'] for x in fr) if fr else False}; shifts "
           f"{[x['patch_shift'] for x in fr][:1]} strip {[x['strip_shift'] for x in fr][:1]}")
@@ -72,6 +77,8 @@ def main():
               f"drift {mt.get('drift_dE')}, glare {mt.get('glare_max')}, sharp {mt.get('sharpness_min')}, "
               f"black L {mt.get('black_L_max')}, strip dE vs empty {mt.get('strip_dE')}")
     print("  failed checks:", [c["name"] for c in meta["checks"] if not c["passed"]])
+    print("  reasons:", meta["verdict"].get("reasons", [])[:3])
+    print("  folder:", folder)
     return 0
 
 
