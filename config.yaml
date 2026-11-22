@@ -46,8 +46,9 @@ hold_block_mg_L: 25
 
 roi:
   shrink_frac: 0.20        # shrink each region by 20% from each edge before sampling
-  shift_tol_px: 15         # max allowed re-location shift
-  search_px: 30            # search window (so a shift > tol can be measured and reported)
+  # FREEZE (D-43): stored in the model as roi_locate; test mode refuses if it changes.
+  shift_tol_px: 25         # max allowed re-location shift (was 15; team decision 2026-11-22, D-43)
+  search_px: 50            # search window (so a shift > tol can be measured and reported; was 30)
   min_match_score: 0.60    # normalised cross-correlation needed to accept a re-location
 
 # Quality gate thresholds (FREEZE). Initial values are placeholders until set from dry

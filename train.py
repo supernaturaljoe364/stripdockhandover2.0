@@ -28,6 +28,7 @@ from app.config import load_config, phone_base, quality_thresholds, rpath  # noq
 from app.model import save_model, train_all  # noqa: E402
 from app.roi import load_roi, roi_hash  # noqa: E402
 from app.session import SESSIONS_DIR, iter_samples, list_sessions, load_session  # noqa: E402
+from app.station import roi_locate_params  # noqa: E402
 
 
 class TrainError(RuntimeError):
@@ -95,6 +96,7 @@ def build_model(samples, cfg, chart, extra):
     d["created"] = time.strftime("%Y-%m-%d %H:%M:%S")
     d["training_samples"] = samples
     d["quality_thresholds"] = quality_thresholds(cfg)
+    d["roi_locate"] = roi_locate_params(cfg)        # D-43: the 'seated' tolerance is frozen too
     d["read_time_s"] = cfg["read_time_s"]
     d["correction_mode"] = cfg.get("correction_mode", "three_point")
     d["read_offsets_s"] = cfg["read_offsets_s"]

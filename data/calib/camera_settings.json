@@ -1,5 +1,5 @@
 {
- "frozen_at": "2026-11-22 12:11:41",
+ "frozen_at": "2026-11-22 12:51:42",
  "phone": "http://127.0.0.1:8080",
  "lighting_mode": "phone_torch",
  "settings": {
@@ -35,14 +35,14 @@
  "focus_method": "single_af",
  "sharpness_ref": {
   "rect": [
-   720,
-   630,
-   660,
-   175
+   713,
+   588,
+   665,
+   150
   ],
-  "value": 455.45908666599195,
+  "value": 596.3953274327673,
   "region": "reference patches",
-  "refreshed_at": "2026-11-22 12:11:45"
+  "refreshed_at": "2026-11-22 12:51:46"
  },
  "log": [
   "set video_size=1920x1080",
@@ -54,14 +54,14 @@
   "torch on (phone_torch)",
   "set manual_sensor=off",
   "set whitebalance=auto",
-  "single autofocus on pad + patches (roi.json): sharpness 98.9",
-  "manual focus sweep on pad + patches (roi.json): best focus_distance=10.0 (sharpness 2.1; range 0.8..2.1)",
-  "focus locked by single autofocus (manual best 2.1 < 0.8 x AF 98.9; strip is closer than manual focus reaches)",
-  "wb incandescent: white chroma 37.53",
-  "wb fluorescent: white chroma 35.24",
-  "wb daylight: white chroma 10.90",
-  "wb cloudy-daylight: white chroma 22.47",
-  "white balance locked: preset daylight (white chroma 10.90)",
+  "single autofocus on pad + patches (roi.json): sharpness 109.8",
+  "manual focus sweep on pad + patches (roi.json): best focus_distance=10.0 (sharpness 2.1; range 1.0..2.1)",
+  "focus locked by single autofocus (manual best 2.1 < 0.8 x AF 109.8; strip is closer than manual focus reaches)",
+  "wb incandescent: white chroma 37.24",
+  "wb fluorescent: white chroma 35.21",
+  "wb daylight: white chroma 10.89",
+  "wb cloudy-daylight: white chroma 22.26",
+  "white balance locked: preset daylight (white chroma 10.89)",
   "exposure locked on white patch (roi.json): exposure 4.548 ms, ISO 25, level 218/255 (target 215)"
  ],
  "manual_steps_needed": []

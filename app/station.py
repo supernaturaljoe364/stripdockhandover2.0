@@ -22,6 +22,30 @@ LATEST_MODEL = ROOT / "models" / "model_latest.json"
 FROZEN_MODES = ("test", "degraded", "demo")
 
 
+def roi_locate_params(cfg: dict) -> dict:
+    """ROI re-location settings that decide 'strip not seated' (frozen into the model, D-43)."""
+    r = cfg.get("roi", {})
+    return {k: r.get(k) for k in ("shrink_frac", "shift_tol_px", "search_px", "min_match_score")}
+
+
+def frozen_mismatches(md: dict, cfg: dict, roi_hash_now, camera_hash_now) -> list[str]:
+    """Why the frozen model no longer matches the current setup ([] = it matches)."""
+    probs = []
+    if md.get("roi_hash") != roi_hash_now:
+        probs.append("ROI changed since the model was frozen")
+    if md.get("camera_settings_hash") != camera_hash_now:
+        probs.append("camera settings differ from the model's")
+    if md.get("quality_thresholds") != quality_thresholds(cfg):
+        probs.append("quality thresholds in config.yaml differ from the frozen ones")
+    if "roi_locate" in md and md["roi_locate"] != roi_locate_params(cfg):
+        probs.append("ROI tolerance (roi: in config.yaml) differs from the frozen one")
+    if md.get("read_time_s") != cfg["read_time_s"]:
+        probs.append("read time differs from the frozen one")
+    if md.get("correction_mode", "three_point") != cfg.get("correction_mode", "three_point"):
+        probs.append("colour correction mode differs from the frozen one")
+    return probs
+
+
 class Station:
     def __init__(self, cfg: dict | None = None, start_threads: bool = True):
         self.cfg = cfg or load_config()
@@ -170,17 +194,7 @@ class Station:
             if m is None:
                 items.append(("Model frozen", False, self.model_error or "no frozen model; train and freeze first"))
             else:
-                probs = []
-                if m.d.get("roi_hash") != self.roi_hash:
-                    probs.append("ROI changed since the model was frozen")
-                if m.d.get("camera_settings_hash") != self.camera_hash:
-                    probs.append("camera settings differ from the model's")
-                if m.d.get("quality_thresholds") != quality_thresholds(self.cfg):
-                    probs.append("quality thresholds in config.yaml differ from the frozen ones")
-                if m.d.get("read_time_s") != self.cfg["read_time_s"]:
-                    probs.append("read time differs from the frozen one")
-                if m.d.get("correction_mode", "three_point") != self.cfg.get("correction_mode", "three_point"):
-                    probs.append("colour correction mode differs from the frozen one")
+                probs = frozen_mismatches(m.d, self.cfg, self.roi_hash, self.camera_hash)
                 items.append(("Model frozen", not probs, "; ".join(probs)))
         items.append(("Session open", self.session is not None,
                       "" if self.session is not None else "start a session first"))

@@ -231,7 +231,8 @@ class ReadJob:
             "read_time_s": read_time, "read_offsets_s": offsets,
             "lighting_mode": cfg["lighting_mode"],
             "camera_settings_hash": st.camera_hash, "roi_hash": st.roi_hash,
-            "quality_thresholds": q,
+            "quality_thresholds": q, "roi_locate": {k: cfg["roi"].get(k) for k in
+                                                    ("shrink_frac", "shift_tol_px", "search_px", "min_match_score")},
             "model": None if model is None else {"file": model.path.name if model.path else None,
                                                  "sha256": model.sha, "frozen": model.frozen,
                                                  "primary": model.primary},

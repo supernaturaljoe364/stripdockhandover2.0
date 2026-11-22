@@ -167,3 +167,9 @@ None needed.
 - **12:12 App** (`start_app.bat`, adb path read from config): checklist green (Arduino COM7, phone, camera locked, ROI loaded) except "Session open". Screenshot `docs/screenshots/main_startup_newpc.png`.
 - Pilot session `20261120_1120_train` no longer matches the ROI hash, so `train.py` will refuse it (by design; pilot evidence only).
 - **Strips left: 28** (team count, 2026-11-22).
+- **12:18–12:33 Dry session `20261122_1218_dry`** (closed, INTACT): E1–E3 empty → UNKNOWN (no strip); D1 dry strip → UNKNOWN not seated (tray −50 px, strip 23 px off vs tray). See `data/labels/collection_log_20261122.md`.
+- **12:35 Training method:** team chose two cumulative ascending series (distilled water limited). Procedure sheet `data/labels/PROCEDURE_20261122.md`.
+- **12:40 Dock adjusted by the team** (tray stop, pencil marks for the strip). Recalibrated twice: first to the strip against the top wall (ROI `8eb4c2eeced700a1`, empty tray at (0,0) px), then, after placement tests showed the team aligns the strip to its pencil marks (19 / 39 / 81 px off), to the pencil-mark position on the team's instruction (**ROI `a4857fd2db689a0d`**, 12:52; reference with the strip between the marks; empty-tray frame from 12:44). `lock_camera.py --new` again (same hash `231eb85694496d11`, white dE00 0.06 mean) and `--refresh-focus-ref` (596.4).
+- **D-43:** seated tolerance 25 px / search 50 px, frozen into the model (`app/station.py` `frozen_mismatches`, `train.py` `roi_locate`; new `tests/test_frozen_match.py`, 3 tests).
+- **New tool** `tools/auto_read.py` (D-42): starts the read when the strip is seated, so operators only handle strips.
+- App restarted 12:55: checklist green except "Session open".
