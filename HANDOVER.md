@@ -10,6 +10,8 @@ The original brief is `StripDock_R3_MASTER_PROMPT.md`. Its **rules on honesty an
 
 ## 0. Status at the end of 2026-11-22 (new laptop) — read this first
 
+**Repository:** work from 22 Nov on is pushed to https://github.com/supernaturaljoe364/stripdockhandover2.0 (git remote `handover2`, `main` tracks it). The original `origin` (Vaisakh-2k6/stripdockhandover) refused pushes from this laptop's account.
+
 Done today (details: `PROGRESS.md` "Day 4", `data/labels/collection_log_20261122.md`, DECISIONS D-41 to D-46):
 - Migrated to the new laptop (Python 3.11.6, `requirements.txt`, adb in `.platform-tools/`, panel on COM7, phone over USB). 93 tests pass.
 - Recalibrated (ROI `a4857fd2db689a0d`, camera hash `231eb85694496d11`), dry runs, quality thresholds applied, HIL 4 and 5 **PASS**.
