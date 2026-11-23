@@ -54,3 +54,10 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
     - B09, B10: HOLD, all checks passed.
     Between 17:55 and 18:33 image sharpness hovered at the frozen blur limit (54.5) after the post-freeze phone disturbance (item 9); from 18:35
     it returned to training level (≈100, black L* 20). The blind test stopped at B10 to keep 2 strips for the demo.
+
+## 2026-11-23
+11. After a reboot: USB debugging had to be re-enabled; camera lock re-applied; phone re-aligned with `align_phone.py` (offset 2/10 px,
+    turn −0.46°). Session `20261123_1448_dry` (closed): D1 reads UNKNOWN (dock moved during read 1; blur 38 / 41 in reads 2–3). 20 controlled
+    single-AF triggers converged at sharpness 55–57; a lens wipe (team, through the box opening) raised it to ≈ 120 but raw black rose to ≈ 39
+    and white to ≈ 83.5. Model estimate for the dry strip D1 (quality failed): 15.6 mg/L, i.e. it would be a borderline HOLD, not PASS.
+12. **D-47 (v2):** black_L_max 40, white_L_max 90 by team instruction; model re-frozen 15:11 (same curve).

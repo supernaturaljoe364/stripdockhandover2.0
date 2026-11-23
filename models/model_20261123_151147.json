@@ -1,0 +1,450 @@
+{
+ "primary": "curve",
+ "selection_rule": "LOSO lexicographic: fewest missed (true>=hold read PASS), then fewest false holds + unknowns, then lowest mean |log error|",
+ "methods": {
+  "curve": {
+   "thresholds": {
+    "reject_dE": 2.7291673954335014,
+    "reject_percentile_value": 1.819444930289001,
+    "band_log": 1.5584154338172571,
+    "band_low_mg_L": 4.47220205122335,
+    "band_basis_n": 5,
+    "band_basis": "standards within 0.4x..2.5x of the hold block",
+    "loso_log_rmse": 0.7792077169086286
+   },
+   "summary": {
+    "n": 8,
+    "missed_ge_hold": 0,
+    "false_holds": 0,
+    "unknown": 0,
+    "within_one_block": 4,
+    "mean_abs_log_err": 0.6702132755138522
+   },
+   "rows": [
+    {
+     "sample_id": "20261122_1411_train/S0-A",
+     "true": 0.0,
+     "est": 2.1238133418775536,
+     "distance": 0.1937291587953429,
+     "log_err": 1.139054480473261,
+     "decision": "PASS",
+     "block": 0.0
+    },
+    {
+     "sample_id": "20261122_1411_train/S10-A2",
+     "true": 10.02,
+     "est": 1.944239824263735,
+     "distance": 0.24835583074521445,
+     "log_err": -1.3198611441298853,
+     "decision": "PASS",
+     "block": 0.0
+    },
+    {
+     "sample_id": "20261122_1411_train/S25-A",
+     "true": 25.0,
+     "est": 17.311604649651134,
+     "distance": 0.4535139142096083,
+     "log_err": -0.3505615452913058,
+     "decision": "HOLD",
+     "block": 25.0
+    },
+    {
+     "sample_id": "20261122_1411_train/S35-A",
+     "true": 35.0,
+     "est": 83.1325903118282,
+     "distance": 0.6477486512211156,
+     "log_err": 0.8488750720279477,
+     "decision": "HOLD",
+     "block": 100.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S0-B",
+     "true": 0.0,
+     "est": 0.0,
+     "distance": 1.2192583373722494,
+     "log_err": 0.0,
+     "decision": "PASS",
+     "block": 0.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S100-A",
+     "true": 100.0,
+     "est": 35.0,
+     "distance": 1.8646202652397244,
+     "log_err": -1.0316015783851498,
+     "decision": "HOLD",
+     "block": 25.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S45-A2",
+     "true": 45.03,
+     "est": 45.06237610122796,
+     "distance": 0.08584064159798349,
+     "log_err": 0.0007031223198370462,
+     "decision": "HOLD",
+     "block": 50.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S55-A",
+     "true": 54.99,
+     "est": 27.620517103649707,
+     "distance": 0.35990689782453616,
+     "log_err": -0.6710492614834314,
+     "decision": "HOLD",
+     "block": 25.0
+    }
+   ],
+   "model": {
+    "method": "curve",
+    "conc_offset": 1.0,
+    "concs": [
+     0.0,
+     10.02,
+     25.0,
+     35.0,
+     45.03,
+     54.99,
+     100.0
+    ],
+    "nodes_lab": [
+     [
+      94.2036,
+      -3.316,
+      15.6394
+     ],
+     [
+      93.95,
+      -1.4226,
+      15.3114
+     ],
+     [
+      92.5134,
+      2.0294,
+      14.3416
+     ],
+     [
+      90.7332,
+      6.0192,
+      11.6896
+     ],
+     [
+      91.748,
+      4.619,
+      12.752
+     ],
+     [
+      92.3728,
+      3.4326,
+      13.6406
+     ],
+     [
+      90.2694,
+      7.769,
+      12.1076
+     ]
+    ],
+    "counts": {
+     "0.0": 2,
+     "10.02": 1,
+     "25.0": 1,
+     "35.0": 1,
+     "45.03": 1,
+     "54.99": 1,
+     "100.0": 1
+    }
+   }
+  },
+  "centroid": {
+   "thresholds": {
+    "reject_dE": 3.285423038777782,
+    "reject_percentile_value": 2.1902820258518547,
+    "band_log": 1.6314797416285363,
+    "band_low_mg_L": 4.086636447911229,
+    "band_basis_n": 5,
+    "band_basis": "standards within 0.4x..2.5x of the hold block",
+    "loso_log_rmse": 0.8157398708142681
+   },
+   "summary": {
+    "n": 8,
+    "missed_ge_hold": 0,
+    "false_holds": 0,
+    "unknown": 0,
+    "within_one_block": 6,
+    "mean_abs_log_err": 0.7452881486811127
+   },
+   "rows": [
+    {
+     "sample_id": "20261122_1411_train/S0-A",
+     "true": 0.0,
+     "est": 1.816290626180309,
+     "distance": 1.2192583373722494,
+     "log_err": 1.0354206382902054,
+     "decision": "PASS",
+     "block": 0.0
+    },
+    {
+     "sample_id": "20261122_1411_train/S10-A2",
+     "true": 10.02,
+     "est": 1.9523464958425758,
+     "distance": 2.213127003726952,
+     "log_err": -1.3171115272342022,
+     "decision": "PASS",
+     "block": 0.0
+    },
+    {
+     "sample_id": "20261122_1411_train/S25-A",
+     "true": 25.0,
+     "est": 51.349583167609616,
+     "distance": 1.8867701769398482,
+     "log_err": 0.6998474368490295,
+     "decision": "HOLD",
+     "block": 50.0
+    },
+    {
+     "sample_id": "20261122_1411_train/S35-A",
+     "true": 35.0,
+     "est": 100.0,
+     "distance": 1.8646202652397244,
+     "log_err": 1.0316015783851498,
+     "decision": "HOLD",
+     "block": 100.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S0-B",
+     "true": 0.0,
+     "est": 1.0681287924828213,
+     "distance": 1.2192583373722494,
+     "log_err": 0.7266442334703943,
+     "decision": "PASS",
+     "block": 0.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S100-A",
+     "true": 100.0,
+     "est": 37.99905696854842,
+     "distance": 1.8646202652397244,
+     "log_err": -0.9515830512975914,
+     "decision": "HOLD",
+     "block": 50.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S45-A2",
+     "true": 45.03,
+     "est": 44.83630118358263,
+     "distance": 1.7443609700006955,
+     "log_err": -0.004216978390676918,
+     "decision": "HOLD",
+     "block": 50.0
+    },
+    {
+     "sample_id": "20261122_1433_train/S55-A",
+     "true": 54.99,
+     "est": 45.03,
+     "distance": 1.7443609700006955,
+     "log_err": -0.1958797455316521,
+     "decision": "HOLD",
+     "block": 50.0
+    }
+   ],
+   "model": {
+    "method": "centroid",
+    "conc_offset": 1.0,
+    "concs": [
+     0.0,
+     10.02,
+     25.0,
+     35.0,
+     45.03,
+     54.99,
+     100.0
+    ],
+    "nodes_lab": [
+     [
+      94.2036,
+      -3.316,
+      15.6394
+     ],
+     [
+      93.95,
+      -1.4226,
+      15.3114
+     ],
+     [
+      92.5134,
+      2.0294,
+      14.3416
+     ],
+     [
+      90.7332,
+      6.0192,
+      11.6896
+     ],
+     [
+      91.748,
+      4.619,
+      12.752
+     ],
+     [
+      92.3728,
+      3.4326,
+      13.6406
+     ],
+     [
+      90.2694,
+      7.769,
+      12.1076
+     ]
+    ],
+    "counts": {
+     "0.0": 2,
+     "10.02": 1,
+     "25.0": 1,
+     "35.0": 1,
+     "45.03": 1,
+     "54.99": 1,
+     "100.0": 1
+    }
+   }
+  }
+ },
+ "hold_block_mg_L": 25.0,
+ "conc_offset": 1.0,
+ "roi_hash": "a4857fd2db689a0d",
+ "camera_settings_hash": "231eb85694496d11",
+ "reject_percentile": 99,
+ "sessions": [
+  "20261122_1411_train",
+  "20261122_1433_train"
+ ],
+ "labels_file_used": true,
+ "created": "2026-11-23 15:11:47",
+ "training_samples": [
+  {
+   "sample_id": "20261122_1411_train/S0-A",
+   "conc": 0.0,
+   "lab": [
+    94.096,
+    -2.774,
+    15.364
+   ],
+   "session": "20261122_1411_train"
+  },
+  {
+   "sample_id": "20261122_1411_train/S10-A2",
+   "conc": 10.02,
+   "lab": [
+    93.95,
+    -1.4225999999999999,
+    15.3114
+   ],
+   "session": "20261122_1411_train"
+  },
+  {
+   "sample_id": "20261122_1411_train/S25-A",
+   "conc": 25.0,
+   "lab": [
+    92.5134,
+    2.0294,
+    14.3416
+   ],
+   "session": "20261122_1411_train"
+  },
+  {
+   "sample_id": "20261122_1411_train/S35-A",
+   "conc": 35.0,
+   "lab": [
+    90.73319999999998,
+    6.0192,
+    11.6896
+   ],
+   "session": "20261122_1411_train"
+  },
+  {
+   "sample_id": "20261122_1433_train/S0-B",
+   "conc": 0.0,
+   "lab": [
+    94.31120000000001,
+    -3.8579999999999997,
+    15.9148
+   ],
+   "session": "20261122_1433_train"
+  },
+  {
+   "sample_id": "20261122_1433_train/S100-A",
+   "conc": 100.0,
+   "lab": [
+    90.26939999999999,
+    7.769,
+    12.107600000000001
+   ],
+   "session": "20261122_1433_train"
+  },
+  {
+   "sample_id": "20261122_1433_train/S45-A2",
+   "conc": 45.03,
+   "lab": [
+    91.748,
+    4.619,
+    12.752
+   ],
+   "session": "20261122_1433_train"
+  },
+  {
+   "sample_id": "20261122_1433_train/S55-A",
+   "conc": 54.99,
+   "lab": [
+    92.37280000000001,
+    3.4326,
+    13.640600000000001
+   ],
+   "session": "20261122_1433_train"
+  }
+ ],
+ "quality_thresholds": {
+  "black_L_max": 40.0,
+  "black_jump_max": 2.0,
+  "white_L_min": 71.0,
+  "white_L_max": 90.0,
+  "white_clip_frac_max": 0.01,
+  "clip_level": 250,
+  "glare_level": 240,
+  "glare_margin": 10,
+  "glare_sat_max": 0.12,
+  "glare_frac_max": 0.02,
+  "blur_min": 54.5,
+  "drift_max_dE": 3.0,
+  "strip_min_dE": 3.0,
+  "strip_min_absdiff": 4.3,
+  "grey_chroma_max": 10.6,
+  "max_frame_age_s": 2.0
+ },
+ "roi_locate": {
+  "shrink_frac": 0.2,
+  "shift_tol_px": 30,
+  "search_px": 60,
+  "min_match_score": 0.6,
+  "strip_tol_px": 40,
+  "strip_min_score": 0.75
+ },
+ "read_time_s": 60,
+ "correction_mode": "white_gain",
+ "read_offsets_s": [
+  0.0,
+  1.5,
+  3.0,
+  4.5,
+  6.0
+ ],
+ "chart_blocks_no3": [
+  0.0,
+  10.0,
+  25.0,
+  50.0,
+  100.0,
+  250.0,
+  500.0
+ ],
+ "warnings": [
+  "borderline band reaches 4.5 mg/L (<= the 10 block): expect false holds on 10 mg/L water"
+ ]
+}

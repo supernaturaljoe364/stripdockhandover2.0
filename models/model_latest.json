@@ -317,7 +317,7 @@
   "20261122_1433_train"
  ],
  "labels_file_used": true,
- "created": "2026-11-22 14:58:56",
+ "created": "2026-11-23 15:11:47",
  "training_samples": [
   {
    "sample_id": "20261122_1411_train/S0-A",
@@ -401,10 +401,10 @@
   }
  ],
  "quality_thresholds": {
-  "black_L_max": 27.5,
+  "black_L_max": 40.0,
   "black_jump_max": 2.0,
   "white_L_min": 71.0,
-  "white_L_max": 83.2,
+  "white_L_max": 90.0,
   "white_clip_frac_max": 0.01,
   "clip_level": 250,
   "glare_level": 240,
