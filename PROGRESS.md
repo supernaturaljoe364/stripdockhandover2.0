@@ -179,3 +179,12 @@ None needed.
 - **15:00–17:50** phone/lid disturbed after freezing (haze, offset, 3° turn); re-aligned with new `tools/align_phone.py`; focus ref refreshed.
 - **17:46–18:49** blind test B01–B13 in two sessions (closed, INTACT). **18:51** answer key (revealed after closing) + `evaluate.py`.
 - Final tests before push: see the commit message.
+
+## Day 5 (2026-11-23): demo day
+
+- Reboot: phone USB debugging re-enabled, camera lock re-applied, phone re-aligned, lens wiped (sharpness ≈ 120).
+- **v2 limits (D-47):** black ≤ 40, white ≤ 90; same model re-frozen (`model_20261123_151156.json`).
+- Degraded session `20261123_1512_degraded`: G09/G12/G14 early_read → UNKNOWN (3/3). Remaining degraded types not run (team stopped).
+- Demo session `20261123_1515_demo` (filmed): DEMO-1 80 mg/L tap → UNKNOWN (colour off curve); DEMO-3 → UNKNOWN (not seated);
+  DEMO-2 distilled 0 mg/L → HOLD (borderline 10 mg/L). Panel test step 3: PASS → CONFIRM_WAIT → timeout → HOLD (button not pressed).
+- `docs/demo/simulated_pass.html`: labelled illustration of the PASS screen (not used by the app).

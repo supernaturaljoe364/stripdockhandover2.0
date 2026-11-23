@@ -8,7 +8,11 @@ The original brief is `StripDock_R3_MASTER_PROMPT.md`. Its **rules on honesty an
 
 ---
 
-## 0. Status at the end of 2026-11-22 (new laptop) — read this first
+## 0. Status (updated 2026-11-23) — read this first
+
+**23 Nov:** demo clips filmed; v2 limits (D-47); degraded test only partly done (3 early_read reads). See PROGRESS Day 5.
+
+### End of 2026-11-22
 
 **Repository:** work from 22 Nov on is pushed to https://github.com/supernaturaljoe364/stripdockhandover2.0 (git remote `handover2`, `main` tracks it). The original `origin` (Vaisakh-2k6/stripdockhandover) refused pushes from this laptop's account.
 
