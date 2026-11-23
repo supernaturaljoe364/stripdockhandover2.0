@@ -61,3 +61,5 @@ Pre-registered plan: `collection_plan_20261122.csv` (written 12:15, before any r
     single-AF triggers converged at sharpness 55–57; a lens wipe (team, through the box opening) raised it to ≈ 120 but raw black rose to ≈ 39
     and white to ≈ 83.5. Model estimate for the dry strip D1 (quality failed): 15.6 mg/L, i.e. it would be a borderline HOLD, not PASS.
 12. **D-47 (v2):** black_L_max 40, white_L_max 90 by team instruction; model re-frozen 15:11 (same curve).
+13. **Team confirmations (2026-11-23):** the blind numbers were mL of stock B added to 100 mL of water (answer key stands as computed).
+    The remaining degraded types (no_strip, drawer_open, torch_through_seam, blur, phone_moved) will not be run.

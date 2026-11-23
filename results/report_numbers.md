@@ -49,7 +49,7 @@ taken with slightly different optics than training (log item 9).
 |---|---|
 | Baseline TDS rule misses (needs tap-water TDS for B01–B07) | answer key `tds_ppm`, then `evaluate.py` |
 | Eye and phone-photo baselines | not recorded (strips used) |
-| Degraded captures → UNKNOWN, by type | degraded session (reuse used strips), then `evaluate.py` |
+| Degraded captures → UNKNOWN | **not completed (team decision 23 Nov):** only early_read was run, 3/3 UNKNOWN (session `20261123_1512_degraded`, v2 limits). Drawer-opened and phone-lost fail-safes are covered by HIL 4–5 instead (`results/hil_log.md`). |
 | HIL 6 with the frozen model (dry strip D1) | `tools/hil_check.py --steps 6` |
 | Demo (HOLD, PASS + CONFIRM, drawer pulled, USB pulled) | filming; needs 2 new strips |
 
