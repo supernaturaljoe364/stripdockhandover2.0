@@ -61,7 +61,13 @@ def wait_and_summarise(sample_id):
         if time.time() - t0 > 150:
             print("timeout waiting for the read")
             return 1
-    last = s["last"]
+    if j.get("phase") == "cancelled" or j.get("cancelled"):
+        print(f"{sample_id}: read CANCELLED (nothing saved as a verdict)")
+        return 1
+    last = s.get("last") or {}
+    if last.get("sample_id") != sample_id:
+        print(f"{sample_id}: no result for this read (last result is {last.get('sample_id')}); not summarising")
+        return 1
     folder = last.get("sample_folder")
     meta = json.load(open(folder + "/meta.json"))
     fr = meta["frames"]

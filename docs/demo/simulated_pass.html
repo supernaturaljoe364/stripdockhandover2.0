@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMULATED PASS screen</title>
+<style>
+  /* Same colours as app/templates/index.html. This page is an ILLUSTRATION for the demo video
+     (team request 2026-11-23): it is not produced by a read and never talks to the panel. */
+  :root { --bg:#111418; --card:#1b2027; --line:#2c333d; --text:#eef1f4; --dim:#9aa4af;
+          --hold:#e5484d; --confirm:#30a46c; --adaptive:#3e63dd; --unknown:#f5a623; --grey:#5b6570; }
+  body { margin:0; background:var(--bg); color:var(--text); font:18px/1.35 "Segoe UI", system-ui, sans-serif; }
+  .sim { background:repeating-linear-gradient(45deg,#f5a623 0 18px,#111418 18px 36px); padding:6px; }
+  .sim div { background:#f5a623; color:#111; text-align:center; font-weight:900; font-size:26px; padding:8px; letter-spacing:.5px; }
+  header { display:flex; align-items:center; gap:14px; padding:10px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  header b { font-size:24px; } .pill { padding:6px 12px; border-radius:999px; font-size:15px; background:#1f5136; }
+  main { display:grid; grid-template-columns:1fr 1fr; gap:16px; padding:16px; max-width:1300px; margin:auto; position:relative; }
+  @media (max-width:800px) { main { grid-template-columns:1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  #panelState { text-align:center; padding:26px 10px; border-radius:12px; font-size:54px; font-weight:800; background:var(--confirm); }
+  #panelSub { text-align:center; color:var(--dim); margin-top:6px; font-size:16px; }
+  #confirmBanner { margin-top:10px; padding:14px; border-radius:10px; background:#173b2a; border:2px solid var(--confirm);
+                   font-size:24px; text-align:center; font-weight:700; }
+  #verdict { font-size:40px; font-weight:800; color:#7aa2ff; }
+  .dim { color:var(--dim); font-size:15px; }
+  .wm { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+  .wm span { transform:rotate(-22deg); font-size:110px; font-weight:900; color:rgba(245,166,35,.16); white-space:nowrap; }
+</style></head>
+<body>
+<div class="sim"><div>SIMULATED SCREEN &mdash; illustration of a PASS, not a real StripDock read</div></div>
+<header><b>StripDock</b><span class="pill">Arduino</span><span class="pill">Phone OK</span><span class="pill">Camera locked</span>
+  <span class="pill">ROI loaded</span><span class="pill">Model frozen</span></header>
+<main>
+  <section class="card">
+    <div class="dim">Last verdict (simulated)</div>
+    <div id="verdict">Adaptive mode (TDS logic)</div>
+    <div class="dim">What the screen shows when a real read passes. In our tests (22&ndash;23 Nov) clean water was
+      held instead (borderline band), so this screen is shown here as an illustration only.</div>
+    <p class="dim">Indicative screening only. StripDock never certifies water quality.</p>
+  </section>
+  <section class="card">
+    <div id="panelState">CONFIRM?</div>
+    <div id="panelSub">Waiting for the CONFIRM button</div>
+    <div id="confirmBanner">Press CONFIRM on the panel within 60 s</div>
+    <p class="dim">Clearing a hold needs a real passing read plus the physical CONFIRM button. UNKNOWN never clears a hold.</p>
+  </section>
+</main>
+<div class="wm"><span>SIMULATED</span></div>
+</body></html>
